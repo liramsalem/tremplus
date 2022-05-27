@@ -1,0 +1,127 @@
+.main {
+  max-width: 700px;
+  margin: auto;
+}
+
+.grid-container{
+      display: grid;
+      grid-template-areas: 'driver_cont drive_cont'
+                            'details details'
+                            'details details'
+                            'ranking ranking';
+      background-color: whitesmoke;
+      padding: 10px;
+      grid-row-gap: 10px;
+      grid-column-gap: 20px;
+  }
+
+  .driver_cont{
+      grid-area:driver_cont ;
+      text-align: center;
+      /*background-color: blanchedalmond;*/
+  }
+
+  .details{
+      grid-area:details ;
+      text-align: center;
+      border-top: 2px solid rgb(208,208,208);
+      /*background-color: lightgreen;*/
+  }
+
+  .drive_cont{
+      grid-area:drive_cont ;
+  }
+  .cont{
+      width: 40%;
+      margin: auto;
+  }
+
+  .ranking{
+      grid-area: ranking;
+      text-align: center;
+  }
+
+  .orign_destination{
+      font-size: 25px;
+  }
+
+
+  .attention_text{
+      color: var(--page_title_color);
+      font-weight: bold;
+      font-size: 18px;
+  }
+
+  .profile_pic{
+    vertical-align: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+      border: 2px solid gray;
+}
+    .link_text{
+      text-decoration:none;
+        color: black;
+  }
+
+.rate {
+    height: 46px;
+    padding: 0 10px;
+    margin-right: 260px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+
+}
+
+.checked {
+  color: orange;
+}
+
+.msg2{
+    color: darkred;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 415px) {
+
+  .cont{
+      width: 80%;
+  }
+
+    .rate{
+        margin-right: 100px;
+    }
+
+}
+
+
+

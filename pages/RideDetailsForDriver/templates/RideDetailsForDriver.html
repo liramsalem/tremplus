@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'RideDetailsForDriver' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('RideDetailsForDriver.static', filename='css/RideDetailsForDriver.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+  <div class="header" >
+            <a href="/MyRides" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+            <h1 class="header_text"> פרטי נסיעה </h1>
+        </div>
+
+        <div class="main" id="main" dir="rtl">
+            <div class="grid-container">
+
+                <div class="driver_cont">
+                     <a href="UserDetails?drive_id={{ res_drive_details[0] }}"> <img class="profile_pic" src="{{ res_drive_details[14]  }}" alt="profile_pic"> </a> <br>
+                    <a href="UserDetails?drive_id={{ res_drive_details[0] }}" class="link_text"> <span> <b> {{ res_drive_details[9]  }} {{ res_drive_details[10]  }} </b> </span> </a> <br>
+                    {% if round_avg<1.00 %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elif 1.00<=round_avg and round_avg<2.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 2.00<=round_avg and round_avg<3.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 3.00<=round_avg and round_avg<4.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 4.00<=round_avg and round_avg<5.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                         {% endif %}
+                        <br>
+                        <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                        <span>  מתוך {{ total_votes }} הצבעות </span><br>
+                </div>
+                <div class="drive_cont">
+                    <br>
+                    <div class="cont">
+                        <i class="fa fa-location-arrow" style="color: dodgerblue; font-size:24px"></i> <span class="orign_destination"> &nbsp;&nbsp; {{ res_drive_details[2]  }}  </span> <br>
+                        &nbsp;<i class="fa fa-ellipsis-v icon" style="color:gray; font-size:24px"></i><br>
+                        <i class="fa fa-map-marker" style="color: orange; font-size:24px"></i><span class="orign_destination"> &nbsp;&nbsp;  {{ res_drive_details[3]  }} </span>
+                    </div>
+                </div>
+                <div class="details">
+                    <br>
+                    <span> <b> תאריך: </b> {{ res_drive_details[4]  }} </span> <br><br>
+                    <span> <b> שעה: </b> {{ res_drive_details[5]  }} </span> <br><br>
+                    <span> <b> מספר מקומות: </b> {{ res_drive_details[6]  }} </span> <br><br>
+                    <span> <b> מקומות פנויים: </b> {{ res_drive_details[7]  }} </span> <br><br>
+                    <div class="popup" onclick="popupFunction('text1')"> <span id="type_here"> לחץ כאן לצפייה ברשימת הנוסעים </span>
+                        <span class="popuptext" id="text1">
+                            {% if message %}
+                                <p class="msg">{{ message }}</p>
+                            {% else %}
+                                {% for res in res_participents_details %}
+                                    <div class="passenger_details">
+                                        <div class="pas_pic">
+                                            <a href="UserDetails?passenger_serial_num={{ res[8] }}&drive_id={{ res_drive_details[0] }}"> <img class="profile_pic_p" src="{{ res[7]  }}" alt="profile_pic"> </a>
+                                        </div>
+                                        <div class="pas_details">
+                                            <span> <b> שם:</b> {{ res[3]  }} {{ res[4]  }}</span> <br>
+                                            <span> <b> טלפון:</b> {{ res[6]  }} </span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+{% endblock %}
+
+
+{% block page_body_js %}
+    <script src="{{ url_for('RideDetailsForDriver.static', filename='js/RideDetailsForDriver.js') }}"></script>
+{% endblock %}

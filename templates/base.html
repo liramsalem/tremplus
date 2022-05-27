@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+ <html lang="{{ page_lang|default("en", true) }}">
+    <head>
+        {% block page_head %}
+            {# Title #}
+            <title> TREMPLUS | {{ page_head_title|default('TREMPLUS', true) }}</title>
+
+            {# Meta tags #}
+            {% block page_head_meta %}
+                <base href="/"/>
+                <meta charset="UTF-8"/>
+                <meta name="author" content="TREMPLUS"/>
+                <meta name="description" content="TREMPLUS"/>
+                <meta name="keywords" content="tremp, carpool, Sha'ar HaNegev, Shaar Hanegev, Regional Council"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                {% block page_head_meta_extra %}{% endblock %}
+            {% endblock %}
+
+        {% endblock %}
+    </head>
+
+    <body {% block body %} {% endblock %}>
+
+        {% block page_bodyGeneral_css %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+            <link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>
+            <link rel="stylesheet" href="{{ url_for('SideNavigation.static', filename='css/SideNavigation.css') }}"/>
+        {% endblock %}
+
+        {% block page_bodyGeneral_js %}
+           <script src="{{ url_for('SideNavigation.static', filename='js/SideNavigation.js') }}"></script>
+        {% endblock %}
+
+        {% block page_body_css %}{% endblock %}
+
+        {% block page_body_js %}{% endblock %}
+
+        {% block page_body_header %}
+            {% include 'header.html' %}
+            {% include 'SideNavigation.html' %}
+        {% endblock %}
+
+        {% block page_body_main_ %}
+            <main class="page-main">
+                {% block page_body_main_content %}
+                {% endblock %}
+            </main>
+        {% endblock %}
+
+    </body>
+
+</html>
+

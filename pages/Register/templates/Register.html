@@ -1,0 +1,136 @@
+  <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% extends 'base.html' %}
+
+{% set page_body_css = 'Register' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('Register.static', filename='css/Register.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('Register.static', filename='js/Register.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="header" >
+        <a href="/OpenScreen" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> הרשמה </h1>
+    </div>
+
+    {% if message %}
+         <p class="msg"> <span id="msg_design">{{ message }} </span> </p>
+    {% endif %}
+
+    <br>
+
+    <div class="main_text">
+
+        <form id="registerform" action="/Register_form"  enctype="multipart/form-data" method="post" >
+
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" id="fname" type="text" placeholder=" שם פרטי *" name="firstnm" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" id="lname" type="text"  placeholder="שם משפחה *" name="lastnm" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" id="nickname" type="text"  placeholder="שם משתמש *" name="nickname" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-institution icon"></i>
+                <select class="input-field" name="kibutz" required>
+                    <option value="אור הנר"> אור הנר </option>
+                    <option value="ארז"> ארז </option>
+                    <option value="ברור חיל"> ברור חיל </option>
+                    <option value="גבים"> גבים </option>
+                    <option value="דורות"> דורות </option>
+                    <option value="כפר עזה"> כפר עזה </option>
+                    <option value="יכיני"> יכיני </option>
+                    <option value="מפלסים"> מפלסים </option>
+                    <option value="נחל עוז"> נחל עוז </option>
+                    <option value="ניר עם"> ניר עם </option>
+                    <option value="רוחמה"> רוחמה </option>
+                </select>
+            </div>
+
+            <div class="input-container">
+               <i class="fa fa-address-card-o icon"></i>
+                <input class="input-field" id="user_id" type="text" placeholder="תעודת זהות *" name="id">
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-phone icon"></i>
+                <input class="input-field" id="phone" type="phone" placeholder="פלאפון *" name="phone">
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input class="input-field" id="email"  type="text" placeholder="אימייל *" name="email" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" id="password" type="password" placeholder="סיסמא *" name="psw" required>
+            </div>
+
+            <div class="input-container">
+                <i class="fa fa-file-image-o icon">   </i>
+                &nbsp;&nbsp; <label for="img" id="add_img">  הוסף תמונה: </label> &nbsp;&nbsp;
+                <input type="file" id="img" name="img" accept="image/*">
+            </div>
+
+        <br>
+
+             <label>
+                 <input  type="checkbox" id="myCheck" name="myCheck" onclick="ifDriverFun()"> אני לא מעוניין להיות נהג
+                   <br> <br>
+                 <div id="idDriver">
+{#                      <input type="hidden" id="driver_or_not" value="driver">#}
+                      <div class="input-container">
+                        <i class="fa fa-minus-square-o icon"></i>
+                        <input class="input-field" id="license_plate" type="text" placeholder="מספר לוחית רישוי *" name="license_plate" required>
+                      </div>
+
+                      <div class="input-container">
+                        <i class="fa fa-car icon"></i>
+                          <input class="input-field" id="car_company"  type="text" placeholder="יצרן הרכב *" name="car_company" required>
+                      </div>
+
+                     <div class="input-container">
+                         <i class="fa fa-paint-brush icon"></i>
+                         <input class="input-field" id="car_color" type="text" placeholder="צבע הרכב *" name="car_color" required>
+                     </div>
+
+                    <div class="input-container">
+                        <i class="fa fa-id-card-o icon">   </i>
+                        &nbsp;&nbsp; <label for="img" id="add_img_2">  תצלום רישיון נהיגה: </label> &nbsp;&nbsp;
+                        <input type="file" id="licence_driver_img" name="licence_driver_img" accept="image/*" required>
+                    </div>
+
+                 </div>
+             </label>
+     </form>
+
+
+        <br>
+        <br>
+
+
+        <button onclick="validateRegisterForm()" class="btn_type1" id="register_btn"> <b> הירשמ/י </b></button>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

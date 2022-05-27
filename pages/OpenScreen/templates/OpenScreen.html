@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'OpenScreen' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('OpenScreen.static', filename='css/OpenScreen.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+        <div class="buttons">
+            <br>
+            <br>
+            <button class="btn_type1" id="open_screen_btn" onclick="window.location.href='/SignIn'"> התחברות</button>
+            <br>
+            <br>
+            <button class="btn_type1" id="open_screen_btn" onclick="window.location.href='/Register'"> הרשמה </button>
+            <br>
+            <br>
+        </div>
+
+        <div class="foter_hp">
+             <p class="foter_home_page">
+            עבור תושבי מועצה אזורית 'שער הנגב', בשיתוף עם עמותת יחדיו <br><br>
+                <img src="OpenScreen/media/shhar-hanegev.png" alt="shhar-hanegev" style="width: 65px"> &nbsp;&nbsp;
+                 <img src="OpenScreen/media/yahdav.jpg" alt="yahdav" style="width: 100px">
+            </p>
+        </div>
+
+
+{% endblock %}
+
+

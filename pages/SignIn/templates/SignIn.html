@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'SignIn' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('SignIn.static', filename='css/SignIn.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('SignIn.static', filename='js/SignIn.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="header" >
+        <a href="/OpenScreen" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> התחברות </h1>
+    </div>
+
+    {% if message %}
+         <p class="msg"> <span id="msg_design">{{ message }} </span> </p>
+    {% endif %}
+
+    <div class="grid-container">
+        <div class="col-1">
+            <br>
+            <br>
+            <form id="signinform" action="/SignIn_form" method="post">
+                  <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    <input class="input-field" id="email"  type="text" placeholder="אימייל *" name="email" required>
+                  </div>
+
+                  <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    <input class="input-field" id="password" type="password" placeholder="סיסמא *" name="psw" required>
+                  </div>
+                <br>
+
+                  <button onclick="validatesigninForm()" class="btn_type1" id="sign_in_btn"> <b> התחבר/י </b></button>
+            </form>
+            <br>
+            <h2 id="eb_text">עדיין לא רשומ/ה? </h2>
+            <button class="btn_type1" id="sign_in_btn" onclick="window.location.href='/Register'"> <b> הירשמ/י עכשיו </b> </button>
+        </div>
+
+        <div class="col2">
+            <div class="col-2-img">
+                <img class="img1" src ="SignIn/media/welcome.png" alt="pic" width="500" height="150">
+            </div>
+            <div class="col-2-text">
+                <h1>ברוך שובך!  </h1>
+                <h2>שמחים שחזרת אלינו :) </h2>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

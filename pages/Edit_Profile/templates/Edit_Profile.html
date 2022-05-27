@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Profile' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('Edit_Profile.static', filename='css/Edit_Profile.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('Edit_Profile.static', filename='js/Edit_Profile.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="header" >
+        <a href="/Profile" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> פרופיל אישי </h1>
+    </div>
+    <br>
+
+    <form id="update_details" action="/update_details" enctype="multipart/form-data" method="post" onsubmit="return validateEditProfile()">
+
+        {%  if session.driver %}
+            <input type="hidden" id="driver_or_not" value="driver">
+        {% else %}
+            <input type="hidden" id="driver_or_not" value="not_driver">
+        {% endif %}
+
+        <table width="400px"  border="0" align="center">
+            <tr>
+                <td width="400px" height="150%" align="center">
+                     <img class="profile" src="{{res_user_details[0][8]}}" alt="profile_pic"><br>
+                    <label for="license_img" class="lable_text">עדכון תמונת פרופיל:    </label>
+                    <input type="file" id="profile_img" name="profile_img" accept="image/*" >
+                </td>
+            </tr>
+            <tr>
+                <td width="400px" height="150%" align="center">
+                <br>
+                    <label for="nickname" class="lable_text">שם משתמש:    </label>
+                    <input type="text" id="nickname" name="nickname" placeholder={{res_user_details[0][2]}}>
+                    <p id="note1"></p>
+                    <label for="email" class="lable_text">אימייל:    </label>
+                    <input type="text" id="email" name="email" placeholder={{res_user_details[0][6]}}>
+                    <p id="note2"></p>
+                    <label for="phone" class="lable_text">פלאפון:    </label>
+                    <input type="text" id="phone" name="phone" placeholder={{res_user_details[0][5]}}>
+                    <label for="kibutz" class="lable_text"> מקום מגורים:   </label>
+                    <select class="input-field" name="kibutz" >
+                        <option value="1">  </option>
+                        <option value="אור הנר"> אור הנר </option>
+                        <option value="ארז"> ארז </option>
+                        <option value="ברור חיל"> ברור חיל </option>
+                        <option value="גבים"> גבים </option>
+                        <option value="דורות"> דורות </option>
+                        <option value="כפר עזה"> כפר עזה </option>
+                        <option value="יכיני"> יכיני </option>
+                        <option value="מפלסים"> מפלסים </option>
+                        <option value="נחל עוז"> נחל עוז </option>
+                        <option value="ניר עם"> ניר עם </option>
+                        <option value="רוחמה"> רוחמה </option>
+                    </select>
+                    <br><br>
+                    {%  if session.driver %}
+                        <label for="license_plate" class="lable_text">מספר לוחית רישוי:    </label>
+                        <input type="text" id="license_plate" name="license_plate" placeholder={{res_driver_details[0][3]}} >
+                        <label for="car_company" class="lable_text">יצרן הרכב:    </label>
+                        <input type="text" id="car_company" name="car_company" placeholder={{res_driver_details[0][4]}} >
+                        <label for="car_color" class="lable_text"> צבע הרכב:    </label>
+                        <input type="text" id="car_color" name="car_color" placeholder={{res_driver_details[0][5]}}>
+                        <label for="license_img" class="lable_text">עדכון תצלום רישיון נהיגה:    </label>
+                        <input type="file" id="licence_driver_img" name="licence_driver_img" accept="image/*" >
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td width="400px" height="150%" align="center">
+                    <br><br>
+                    <button  type="submit" class="btn_type2"> <b> עדכנ/י </b> </button>  {#לא לשכוח למחוק onsubmit מהשורה של הform #}
+{#                    <button  onclick="validateEditProfile()" class="btn_type2"> <b> עדכנ/י </b> </button>#}
+                    <br><br>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
+{% endblock %}
+
+

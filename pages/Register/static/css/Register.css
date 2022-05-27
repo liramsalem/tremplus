@@ -1,0 +1,86 @@
+
+#add_img,#add_img_2{
+  color: rgb(72, 104, 175);
+}
+
+#myCheck{
+  margin-right: 41%;
+}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 770px;
+  margin-bottom: 15px;
+    /*justify-content: center;*/
+  margin-right: 41%;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: rgb(72, 104, 175);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 35%;
+  padding: 10px;
+  outline: none;
+  text-align: right;
+}
+
+.input-field:focus {
+  border: 2px solid rgb(72, 104, 175);
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    transition: 0.5s;
+    font-size: 1.1rem;
+  }
+
+#register_btn {
+  width: 252.5px;
+  margin-right: 43%;
+}
+
+.main_text{
+    justify-content: center;
+}
+
+@media only screen and (max-width: 415px) {
+
+  #myCheck{
+  margin-right: 19%;
+}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 580px;
+  margin-bottom: 15px;
+    /*justify-content: center;*/
+  margin-right: 19%;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 35%;
+  padding: 10px;
+  outline: none;
+  text-align: right;
+}
+
+#register_btn {
+  width: 252.5px;
+  margin-right: 19%;
+}
+
+}
+

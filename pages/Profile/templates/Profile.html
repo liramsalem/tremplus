@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Profile' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('Profile.static', filename='css/Profile.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="header" >
+        <a href="/Home" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> פרופיל אישי </h1>
+    </div>
+
+    {% if message %}
+         <p class="msg"> <span id="msg_design">{{ message }} </span> </p>
+    {% endif %}
+
+    <br><br>
+
+    <div class="grid-container">
+        <div class="profile_pic">
+            <img class="profile" src="{{res_user_details[0][8]}}" alt="profile_pic"><br><br>
+            {%  if session.driver %}
+                {% if round_avg<1.00 %}
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                {% elif 1.00<=round_avg and round_avg<2.00  %}
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star checked"></span>
+                {% elif 2.00<=round_avg and round_avg<3.00  %}
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                {% elif 3.00<=round_avg and round_avg<4.00  %}
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                {% elif 4.00<=round_avg and round_avg<5.00  %}
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                {% else %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                {% endif %}
+                <br>
+                <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                <span>  מתוך {{ total_votes }} הצבעות </span><br>
+            {% endif %}
+        </div>
+
+        <div class="user_details">
+            <label for="fullname" class="lable_text">שם מלא:    </label> {{res_user_details[0][0]}} {{res_user_details[0][1]}} <br><br>
+            <label for="nickname" class="lable_text">שם משתמש:    </label> {{res_user_details[0][2]}}  <br><br>
+            <label for="email" class="lable_text">אימייל:    </label> {{res_user_details[0][6]}}  <br><br>
+            <label for="phone" class="lable_text">פלאפון:    </label> {{res_user_details[0][5]}}  <br><br>
+            <label for="kibutz" class="lable_text"> מקום מגורים:   </label> {{res_user_details[0][3]}}  <br><br><br>
+            {%  if session.driver %}
+                <label for="license_plate" class="lable_text">מספר לוחית רישוי:    </label> {{res_driver_details[0][3]}}  <br><br>
+                <label for="car_company" class="lable_text">יצרן הרכב:    </label> {{res_driver_details[0][4]}}  <br><br>
+                <label for="car_color" class="lable_text">צבע הרכב:    </label> {{res_driver_details[0][5]}}  <br><br>
+            {% endif %}
+        </div>
+
+        <div class="edit">
+            <a href="/Edit_Profile" class="option_text"><i class="fa fa-pencil" aria-hidden="true" style="font-size: 20px"></i> <br> עריכה</a>
+            <br><br>
+            <a href="/ChangePassword"  class="option_text" > שינוי סיסמה</a>
+        </div>
+
+        <div class="log_out">
+            <button class="btn_type2" onclick="window.location.href='/LogOut'"> <b> התנתקות </b> </button> <br><br>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+

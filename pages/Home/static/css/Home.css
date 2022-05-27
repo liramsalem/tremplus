@@ -1,0 +1,95 @@
+
+.text{
+    text-align: center;
+    font-size: 20px;
+}
+
+.grid-container-buttons {
+    display: grid;
+    grid-template-areas:
+    'item1 item2 item3'
+    'item4 item5 item6';
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 300px;
+    margin-left: 300px;
+
+}
+
+.option{
+    padding: 20px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 1vh 2vh 0 rgba(0, 0, 0, 0.17);
+    text-align: center;
+    width: 100px;
+    justify-self: center;
+}
+
+#item1{
+    grid-area: item1;
+}
+
+#item2{
+    grid-area: item2;
+}
+
+#item3{
+    grid-area: item3;
+}
+
+#item4{
+    grid-area: item4;
+}
+
+#item5{
+    grid-area: item5;
+}
+
+#item6{
+    grid-area: item6;
+}
+
+.foter_home_page{
+  text-align: center;
+}
+
+
+.center_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option_text{
+    text-decoration:none;
+    color: rgb(0, 0, 0);
+}
+
+.profile_pic_home{
+    vertical-align: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 415px) {
+
+.grid-container-buttons {
+    display: grid;
+    grid-template-areas:
+    'item1 item2'
+    'item4 item3'
+    'item5 item6';
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+}

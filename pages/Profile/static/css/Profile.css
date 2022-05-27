@@ -1,0 +1,100 @@
+.grid-container{
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 50% 50% ;
+  justify-content: center;
+  justify-items: center;
+}
+
+.profile_pic{
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+}
+.user_details{
+  grid-column: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.edit{
+  grid-column: 3;
+  grid-row: 1;
+}
+.log_out{
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.lable_text{
+   font-weight: bold;
+}
+
+
+.profile {
+  vertical-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.edit{
+  text-align: center;
+}
+
+.option_text{
+    text-decoration:none;
+    color: rgb(0, 0, 0);
+}
+
+.checked {
+  color: orange;
+}
+
+@media only screen and (max-width: 415px) {
+  .grid-container{
+    display: grid;
+    grid-template-areas:
+    'profile_pic edit'
+    'user_details user_details'
+    'user_details user_details'
+    'user_details user_details'
+    'log_out log_out';
+    justify-content: center;
+    justify-items: center;
+    margin-right: 70px;
+  }
+
+  .profile_pic{
+    grid-area: profile_pic;
+    text-align: center;
+    /*background-color: #d8404a;*/
+    margin-left: 20px;
+  }
+  .user_details{
+    grid-area: user_details;
+    /*background-color: #acacac;*/
+    padding-top: 0px;
+  }
+
+  .edit{
+    grid-area: edit;
+    margin-right: 170px;
+    /*background-color: #6B81CB;*/
+    width: 100px;
+  }
+  .log_out{
+    grid-area: log_out;
+    /*background-color: #deb217;*/
+    padding-top: 20px;
+  }
+
+  .profile {
+    vertical-align: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }
+
+}

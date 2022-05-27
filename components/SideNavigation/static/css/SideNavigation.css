@@ -1,0 +1,44 @@
+
+.sideNavigationBar {
+  height: 100%;
+  /*margin-top: 122px;*/
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:#6B81CB;
+  overflow-x: hidden;
+  transition: 0.5s;
+  box-shadow: 0 1vh 2vh 0 rgba(0,0,0,0.5);
+  text-align: right;
+  padding-top: 60px;
+  right: 0px;
+}
+
+.sideNavigationBar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: whitesmoke;
+  display: block;
+  transition: 0.3s;
+}
+
+.sideNavigationBar a:hover {
+  color: rgba(7, 16, 178, 0.94);
+  font-weight: bold;
+}
+
+.sideNavigationBar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sideNavigationBar {padding-top: 15px;}
+  .sideNavigationBar a {font-size: 18px;}
+}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Home' %}
+
+{% block body %} onload="greet_text()" {% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('Home.static', filename='css/Home.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('Home.static', filename='js/Home.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <br>
+    <br>
+    <div>
+          {% if session.logged_in %}
+              <div class="text">
+                    <div class="profile_pic">
+                        <img class="profile_pic_home" src="{{ session.profile_pic }}" alt="profile_pic"><br><br>
+                    </div>
+                    <label id="lblGreetings"></label> {{ session.user_name }}
+              </div>
+          {% endif %}
+
+        <div class="grid-container-buttons">
+            <div class="option" id="item1">
+                <a href="/NewDrive" class="option_text" > <i class="fa fa-plus-square-o" aria-hidden="true" style="font-size: 30px"></i> <br>
+                 נסיעה חדשה
+                </a>
+            </div>
+            <div class="option" id="item2">
+                <a href="/Search" class="option_text" > <i class="fa fa-search" aria-hidden="true" style="font-size: 30px"></i> <br>
+                 חיפוש
+                </a>
+            </div>
+            <div class="option" id="item3">
+                <a href="/MyRides" class="option_text" > <i class="fa fa-car" aria-hidden="true" style="font-size: 30px"></i> <br>
+                הנסיעות שלי
+                </a>
+            </div>
+            <div class="option" id="item4">
+                <a target="_blank" href="https://www.sng.org.il/" class="option_text" > <i class="fa fa-internet-explorer" aria-hidden="true" style="font-size: 30px"></i> <br>
+                 אתר המועצה
+                 </a>
+            </div>
+            <div class="option" id="item5">
+                <a href="/ImportantPhones" class="option_text" > <i class="fa fa-phone" aria-hidden="true" style="font-size: 30px"></i> <br>
+                 טלפונים חשובים
+                </a>
+            </div>
+            <div class="option" id="item6">
+                <a href="/Profile" class="option_text" > <i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 30px"></i> <br>
+                פרופיל אישי
+                </a>
+            </div>
+
+        </div>
+    <br>
+    <br>
+
+        <div class="center_item">
+            <button class="btn_type2" id="log_out_btn" onclick="window.location.href='/LogOut'"> <b> התנתקות </b> </button>
+        </div>
+
+
+    <br>
+    <br>
+        <div class="foter_hp">
+             <p class="foter_home_page">
+            עבור תושבי מועצה אזורית 'שער הנגב', בשיתוף עם עמותת יחדיו <br><br>
+                <img src="OpenScreen/media/shhar-hanegev.png" alt="shhar-hanegev" style="width: 65px"> &nbsp;&nbsp;
+                 <img src="OpenScreen/media/yahdav.jpg" alt="yahdav" style="width: 100px">
+            </p>
+        </div>
+
+
+    </div>
+
+{% endblock %}

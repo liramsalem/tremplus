@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'RideDetails' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('RideDetails.static', filename='css/RideDetails.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+        <div class="header" >
+            {%  if session.search %}
+                <a href="/Search" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+            {% else %}
+                <a href="/MyRides" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+            {% endif %}
+            <h1 class="header_text"> פרטי נסיעה </h1>
+        </div>
+
+        <div class="main" id="main" dir="rtl">
+            <div class="grid-container">
+
+                <div class="driver_cont">
+                     <a href="UserDetails?drive_id={{ res[0] }}"> <img class="profile_pic" src="{{ res[14]  }}" alt="profile_pic"> </a> <br>
+                    <a href="UserDetails?drive_id={{ res[0] }}" class="link_text"> <span> <b> {{ res[9]  }} {{ res[10]  }} </b> </span> </a> <br>
+                    {% if round_avg<1.00 %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elif 1.00<=round_avg and round_avg<2.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 2.00<=round_avg and round_avg<3.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 3.00<=round_avg and round_avg<4.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 4.00<=round_avg and round_avg<5.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                         {% endif %}
+                        <br>
+                        <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                        <span>  מתוך {{ total_votes }} הצבעות </span><br>
+                </div>
+                <div class="drive_cont">
+                    <br>
+                    <div class="cont">
+                        <i class="fa fa-location-arrow" style="color: dodgerblue; font-size:24px"></i> <span class="orign_destination"> &nbsp;&nbsp; {{ res[2]  }}  </span> <br>
+                        &nbsp;<i class="fa fa-ellipsis-v icon" style="color:gray; font-size:24px"></i><br>
+                        <i class="fa fa-map-marker" style="color: orange; font-size:24px"></i><span class="orign_destination"> &nbsp;&nbsp;  {{ res[3]  }} </span>
+                    </div>
+                </div>
+                <div class="details">
+                    <br>
+                    <span> <b> תאריך: </b> {{ res[4]  }} </span> <br><br>
+                     <span> <b> שעה: </b> {{ res[5]  }} </span> <br><br>
+                      <p class="attention_text">  שים/י לב <i class="fa fa-heart" style="color:rgb(72, 104, 175)"></i> <br>
+                          יש להימנע מלעלות לרכבים חשודים! <br>
+                          לצורך זיהוי מיטבי של הנהג/ת, אלו הם פרטי הרכב המזוהים עימו/ה במערכת: <br>
+                      </p>
+                     <span> <b> סוג רכב: </b> {{ res[12]  }} </span> <br><br>
+                     <span> <b> צבע: </b> {{ res[13]  }} </span> <br><br>
+                     <span> <b> לוחית רישוי: </b> {{ res[11]  }} </span> <br><br>
+                </div>
+
+            </div>
+        </div>
+
+{% endblock %}
+
+

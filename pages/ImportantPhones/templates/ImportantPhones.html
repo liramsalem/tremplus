@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'ImportantPhones' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('ImportantPhones.static', filename='css/ImportantPhones.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="header" >
+        <a href="/Home" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> טלפונים חשובים </h1>
+    </div>
+    <br><br>
+
+       <div class="Phone_book" dir="rtl" >
+           <button class="collapsible" onclick="openQuestion('content1')">לשכת ראש המועצה </button>
+           <div class="content" id="content1" style="display: none">
+               <table border="0">
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> אופיר ליבשטיין </b> <br> ראש המועצה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802215 </label> <br>
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  052-5916132 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  ofir@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> סיגלית גוזי אפנג'ר </b> <br> מנהלת הלשכה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802225 </label> <br>
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile"style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  054-6755308 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  sigalitg@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> ליחן אפרת שוחט </b> <br> מזכירת לשכה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802215 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  lishkas@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+               </table>
+           </div>
+           <button class="collapsible" onclick="openQuestion('content2')">מנכ"לית המועצה </button>
+           <div class="content" id="content2" style="display: none">
+               <table border="0">
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> הדסה אטיאס </b> <br> מזכירה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802205 </label> <br>
+                            &nbsp;&nbsp; <label for="fax"> <i class="fa fa-fax" style="color:purple"> </i> &nbsp;&nbsp;  077-9802220 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  adasa@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> לילך שיינגורטן </b> <br> מנכ"לית המועצה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  054-6617584 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  lilach@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+               </table>
+           </div>
+                      <button class="collapsible" onclick="openQuestion('content3')">עמותת ותיקי שער הנגב </button>
+           <div class="content" id="content3" style="display: none">
+               <table border="0">
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> חיה ברדמן לוי </b> <br> מנהלת העמותה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802725 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  hayabl@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> מירי מיטלמן </b> <br> מזכירה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802725 </label> <br>
+                            &nbsp;&nbsp; <label for="fax"> <i class="fa fa-fax" style="color:purple"> </i> &nbsp;&nbsp;  08-6899868 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  miriamm@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> תמי הלוי </b> <br> יו"ר עמותה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-6802275 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  zvitam@nahaloz.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> שירה מדר </b> <br> עו"ס </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802677 </label> <br>
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  052-3729906 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  shiram@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> ליעד טויטו </b> <br> רכזת תרבות </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802679 </label> <br>
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  050-5402070 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  liadt@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+               </table>
+           </div>
+           <button class="collapsible" onclick="openQuestion('content4')">תחבורה </button>
+           <div class="content" id="content4" style="display: none">
+               <table border="0">
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> אילן שרהשר </b> <br> מנהל המחלקה </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  052-9430745 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  mailto:tahburam@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> אילן גבאי </b> <br> קצין בטיחות </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="mobile_phone"> <i class="fa fa-mobile" style="color:blue; font-size:24px"> </i> &nbsp;&nbsp;  054-9790840 </label> <br>
+                            &nbsp;&nbsp; <label for="mail"> <i class="fa fa-envelope" style="color:red"> </i> &nbsp;&nbsp;  safety@sng.org.il </label> <br><br>
+                        </td>
+                   </tr>
+                   <tr >
+                        <td width="300px" height="150%" align="center">
+                             <p class="name_text"> <b> משרדי המחלקה </b> <br>  </p>
+                        </td>
+                        <td width="800px" align="right">
+                            &nbsp;&nbsp; <label for="phone"> <i class="fa fa-phone" style="color:green"> </i> &nbsp;&nbsp;  077-9802209 </label> <br>
+                            &nbsp;&nbsp; <label for="fax"> <i class="fa fa-fax" style="color:purple"> </i> &nbsp;&nbsp;  08-6897093 </label> <br><br>
+                        </td>
+                   </tr>
+               </table>
+           </div>
+
+       <br><br>
+   </div>
+{% endblock %}
+
+
+{% block page_body_js %}
+    <script src="{{ url_for('ImportantPhones.static', filename='js/ImportantPhones.js') }}"></script>
+{% endblock %}

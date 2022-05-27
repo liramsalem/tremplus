@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'DrivesHistory' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('DrivesHistory.static', filename='css/DrivesHistory.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="header" >
+        <a href="/Home" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> נסיעות קודמות </h1>
+    </div>
+    <br>
+
+        {% for drive in passenger_drive %}
+            <div class="content">
+                <div class="right_side">
+                    <i class="fa fa-location-arrow" style="color: dodgerblue"></i> &nbsp;&nbsp;{{ drive[2] }} <br>
+                    <i class="fa fa-ellipsis-v icon" style="color:gray"></i><br>
+                    <i class="fa fa-map-marker" style="color: orange"></i> &nbsp;&nbsp;  {{ drive[3] }}
+                </div>
+                <div class="left_side">
+                    <b>תאריך: {{ drive[4] }}</b>  &nbsp;&nbsp;&nbsp;  <br><br>
+                    <b>שעה: {{ drive[5] }} </b><br> </form>
+                    <p class="more_details"> <a href="RankingUser?drive_id={{ drive[0] }}&driver_serial_num={{ drive[7] }}" class="link_text" > לפרטים נוספים <i class="fa fa-caret-left" aria-hidden="true"></i> </a> </p>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+{% endblock %}
+

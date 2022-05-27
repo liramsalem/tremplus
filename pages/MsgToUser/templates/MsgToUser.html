@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'MsgToUser' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('MsgToUser.static', filename='css/MsgToUser.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    <div class="header" >
+        <a href="/DrivesHistory" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> פרטי נסיעה קודמת </h1>
+    </div>
+
+        <div class="main" id="main" dir="rtl">
+                {% if message %}
+                    <p class="msg"><span id="msg_design">{{ message }} </span></p>
+                {% endif %}
+        </div>
+{% endblock %}
+
+
+

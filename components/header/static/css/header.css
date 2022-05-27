@@ -1,0 +1,73 @@
+@import "../../../../CSS/variables.css";
+    *{
+        font-family: var(--font-text);
+    }
+
+    header {
+        background: var(--backgroung-header_footer);
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .top-line-left {
+        float: left;
+        margin: 10px;
+        /*padding-left: 35px;*/
+        margin-left: 39px;
+        transition: 0.2s;
+        font-size: 30px;
+    }
+
+    .top-line-center {
+        display: inline-block;
+        margin: 3px;
+    }
+    .top-line-right {
+        float: right;
+        margin: 10px;
+        padding-right: 10px;
+        transition: 0.2s;
+        font-size: 30px;
+    }
+
+#side_nav_btn,#profile_btn {
+   cursor: pointer;
+    background-color: var(--color_background_buttons_header);
+    color:  var(--color_text_buttons);
+    border: none;
+  }
+
+#side_nav_btn:hover,#profile_btn:hover {
+    background-color: var(--color_hover_header);
+  }
+
+#logo_img{
+    margin-left: 30px;
+}
+
+
+@media only screen and (max-width: 415px) {
+
+    .top-line-left {
+        float: left;
+        margin: 5px;
+    }
+
+
+    .top-line-center {
+        display: inline-block;
+        margin: 3px;
+    }
+
+    .top-line-right {
+        float: right;
+        margin: 5px;
+        padding-right: 0px;
+        margin-right: -27px;
+    }
+
+}

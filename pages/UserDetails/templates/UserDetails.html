@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'UserDetails' %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('UserDetails.static', filename='css/UserDetails.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="header" >
+        {%  if session.details_for_driver %}
+            <a href="RideDetailsForDriver?drive_id={{ drive_id }}" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        {% else %}
+            <a href="RideDetails?drive_id={{ drive_id }}" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        {% endif %}
+        <h1 class="header_text"> פרופיל משתמש </h1>
+    </div>
+
+    <br><br>
+
+
+    {% if driver_details %}
+    <div class="main" id="main" dir="rtl">
+        <div class="grid-container">
+
+             <div class="driver_cont">
+                 <br>
+                 <img class="profile_pic" src="{{ res[10]  }}" alt="profile_pic"><br>
+                 {% if round_avg<1.00 %}
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                 {% elif 1.00<=round_avg and round_avg<2.00  %}
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star checked"></span>
+                 {% elif 2.00<=round_avg and round_avg<3.00  %}
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                 {% elif 3.00<=round_avg and round_avg<4.00  %}
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                 {% elif 4.00<=round_avg and round_avg<5.00  %}
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                 {% else %}
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                 {% endif %}
+                 <br>
+                 <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                 <span>  מתוך {{ total_votes }} הצבעות </span><br>
+             </div>
+
+            <div class="user_details"> <br>
+                <label for="fullname" class="lable_text"><b> שם מלא:    </b></label>  {{ res[6]  }} {{ res[7]  }}  <br><br>
+                <label for="nickname" class="lable_text"> <b> שם משתמש:  </b> </label> {{res[8]}}  <br><br>
+                <label for="phone" class="lable_text"><b> פלאפון: </b> </label> {{res[9]}}  <br><br>
+                <label for="kibutz" class="lable_text"><b> מקום מגורים: </b></label> {{res[11]}}  <br><br>
+                <label for="license_plate" class="lable_text"><b> מספר לוחית רישוי: </b>    </label> {{res[3]}}  <br><br>
+                <label for="car_company" class="lable_text"><b> יצרן הרכב: </b>    </label> {{res[4]}}  <br><br>
+                <label for="car_color" class="lable_text"><b> צבע הרכב:</b>    </label> {{res[5]}}  <br><br>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+    {% if passenger_details %}
+    <div class="main" id="main" dir="rtl">
+        <div class="grid-container">
+
+             <div class="driver_cont">
+                 <br>
+                 <img class="profile_pic" src="{{ res_p[8]  }}" alt="profile_pic"><br>
+                 {% if passenger_also_driver %}
+                      {% if round_avg<1.00 %}
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                     {% elif 1.00<=round_avg and round_avg<2.00  %}
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star checked"></span>
+                     {% elif 2.00<=round_avg and round_avg<3.00  %}
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                     {% elif 3.00<=round_avg and round_avg<4.00  %}
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                     {% elif 4.00<=round_avg and round_avg<5.00  %}
+                         <span class="fa fa-star"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                     {% else %}
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                         <span class="fa fa-star checked"></span>
+                     {% endif %}
+                     <br>
+                     <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                     <span>  מתוך {{ total_votes }} הצבעות </span><br>
+                 {% endif %}
+             </div>
+
+            <div class="user_details"> <br>
+                <label for="fullname" class="lable_text"><b> שם מלא:    </b></label>  {{ res_p[0]  }} {{ res_p[1]  }}  <br><br>
+                <label for="nickname" class="lable_text"> <b> שם משתמש:  </b> </label> {{res_p[2]}}  <br><br>
+                <label for="phone" class="lable_text"><b> פלאפון: </b> </label> {{res_p[5]}}  <br><br>
+                <label for="kibutz" class="lable_text"><b> מקום מגורים: </b> </label> {{res_p[3]}}  <br><br>
+                {% if passenger_also_driver %}
+                    <label for="license_plate" class="lable_text"><b> מספר לוחית רישוי: </b>    </label> {{res_p_d[3]}}  <br><br>
+                    <label for="car_company" class="lable_text"><b> יצרן הרכב: </b>    </label> {{res_p_d[4]}}  <br><br>
+                    <label for="car_color" class="lable_text"><b> צבע הרכב:</b>    </label> {{res_p_d[5]}}  <br><br>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+
+{% endblock %}
+
+

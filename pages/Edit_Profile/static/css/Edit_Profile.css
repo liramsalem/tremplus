@@ -1,0 +1,35 @@
+
+.lable_text{
+   font-weight: bold;
+}
+
+
+.profile {
+  vertical-align: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+
+.option_text{
+    text-decoration:none;
+    color: rgb(0, 0, 0);
+}
+
+  input[type=text],select {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input[type=file]{
+    text-align-last: center;
+  }
+
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }

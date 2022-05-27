@@ -1,0 +1,40 @@
+.main {
+  max-width: 700px;
+  margin: auto;
+}
+
+.grid-container{
+      display: grid;
+      grid-template-areas: 'driver_cont'
+                            'user_details'
+                            'user_details';
+      background-color: whitesmoke;
+      padding: 10px;
+      grid-row-gap: 10px;
+      grid-column-gap: 20px;
+  }
+
+  .driver_cont{
+      grid-area:driver_cont ;
+      text-align: center;
+  }
+
+  .user_details{
+      grid-area:user_details ;
+      text-align: center;
+      border-top: 2px solid rgb(208,208,208);
+  }
+
+  .profile_pic{
+    vertical-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+      border: 2px solid gray;
+}
+
+
+.checked {
+  color: orange;
+}
+

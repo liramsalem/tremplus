@@ -1,0 +1,146 @@
+.main {
+  max-width: 700px;
+  margin: auto;
+}
+
+.grid-container{
+      display: grid;
+      grid-template-areas: 'driver_cont drive_cont'
+                            'details details'
+                            'details details';
+      background-color: whitesmoke;
+      padding: 10px;
+      grid-row-gap: 10px;
+      grid-column-gap: 20px;
+  }
+
+  .driver_cont{
+      grid-area:driver_cont ;
+      text-align: center;
+  }
+
+  .details{
+      grid-area:details ;
+      text-align: center;
+      border-top: 2px solid rgb(208,208,208);
+  }
+
+  .drive_cont{
+      grid-area:drive_cont ;
+  }
+  .cont{
+      width: 40%;
+      margin: auto;
+  }
+
+  .orign_destination{
+      font-size: 25px;
+  }
+
+
+  .profile_pic{
+    vertical-align: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+      border: 2px solid gray;
+}
+    .link_text{
+      text-decoration:none;
+        color: black;
+  }
+
+    .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+
+  }
+
+    #type_here{
+     color: var(--page_title_color);
+      font-weight: bold;
+      font-size: 18px;
+
+    }
+
+
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 300px;
+    background-color:rgb(208,208,208);
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    right: -40px;
+  }
+
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  .profile_pic_p{
+    vertical-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+      border: 2px solid gray;
+}
+
+  .passenger_details{
+      display: grid;
+      grid-template-areas: 'pas_pic pas_details';
+      width: 300px;
+      /*background-color: whitesmoke;*/
+      /*padding: 10px;*/
+      /*grid-row-gap: 5px;*/
+      /*grid-column-gap: 10px;*/
+  }
+
+  .pas_pic{
+      grid-area:pas_pic ;
+      text-align: center;
+       border-bottom: 2px solid white;
+  }
+
+  .pas_details{
+      grid-area:pas_details ;
+      text-align: center;
+      border-bottom: 2px solid white;
+
+  }
+
+      .checked {
+  color: orange;
+}
+
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+@media only screen and (max-width: 415px) {
+
+  .cont{
+      width: 80%;
+  }
+
+}

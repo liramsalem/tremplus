@@ -1,0 +1,142 @@
+.myInput {
+  background-image: url(../media/searchicon.png);
+  background-position-x: 400px;
+  background-position-y:center;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 450px;
+  font-size: 20px;
+  padding: 10px 20px 12px 40px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  box-shadow: 0 0.5vh 0.5vh 0 rgba(0,0,0,0.2);
+}
+
+.search_box{
+ text-align: center;
+}
+
+.search_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .btn_text{
+    cursor: pointer;
+    background-color:transparent;
+    color: rgb(72, 104, 175);
+    font-size: 18px;
+    border-color: transparent;
+    padding: 5px 5px;
+    text-align: center;
+      text-decoration: underline;
+  }
+
+  .search_all_drive_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* search result */
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.row {
+    margin: 8px -16px;
+  }
+
+  .row,
+  .row > .column {
+    padding:18px;
+  }
+
+  .column {
+    float: left;
+    width: 33.33%;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .content{
+      display: grid;
+      grid-template-areas: 'right_side left_side left_side'
+                            'right_side left_side left_side'
+                            'right_side left_side left_side'
+                            'buton buton buton'
+                            'details details details';
+      background-color: whitesmoke;
+      padding: 10px;
+      grid-row-gap: 10px;
+      grid-column-gap: 20px;
+  }
+
+  .right_side{
+      grid-area: right_side;
+      border-left: 2px solid rgb(208,208,208);
+  }
+
+  .left_side{
+      grid-area: left_side;
+  }
+
+  .join_button{
+      grid-area: buton;
+      text-align: center;
+  }
+
+  .side{
+      grid-area: details;
+      font-size: small;
+      text-align: left;
+  }
+
+  .icon{
+      margin-right: 2px;
+  }
+
+  .link_text{
+      text-decoration:none;
+      color: var(--color_text_buttons);
+  }
+
+
+
+  @media only screen and (max-width: 415px) {
+
+      .myInput {
+        width: 300px;
+    }
+
+    .main {
+        max-width: none;
+}
+
+  .row,
+  .row > .column {
+    padding:10px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+    .content {
+        margin: auto;
+        width: 300px;
+    }
+
+
+
+}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'NewDrive' %}
+
+{% block body %} onload="setMinDate()" {% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('NewDrive.static', filename='css/NewDrive.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('NewDrive.static', filename='js/NewDrive.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="header" >
+        <a href="/Home" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> הוסף נסיעה חדשה </h1>
+    </div>
+
+    {% if message %}
+         <p class="msg"><span id="msg_design">{{ message }} </span></p>
+     {% endif %}
+
+    <br>
+
+    {%  if session.driver %}
+        <form id="NewDrive_form" action="/NewDrive_form" method="post" >
+            <div class="add_new_drive" align="center">
+                <label for="origin">מוצא   <i class="fa fa-location-arrow"></i> </label>
+                <input class="input_driver" type="text" id="origin" name="origin" required>
+                <label for="destination">יעד   <i class="fa fa-map-marker"></i> </label>
+                <input class="input_driver" type="text" id="destination" name="destination" required>
+                <label for="drive_date">תאריך   <i class="fa fa-calendar"></i> </label>
+                <input class="input_driver" type="date" id="drive_date" name="drive_date" required>
+                <label for="departure_hour">שעה   <i class="fa fa-clock-o"></i></label>
+                <input class="input_driver" type="time"  id="departure_hour" name="departure_hour" required>
+                <label for="max_seats">מספר מקומות פנויים   <i class="fa fa-car"></i> </label>
+                <input class="input_driver" type="text" id="max_seats" name="max_seats" required>
+            </div>
+
+            <br><br>
+            <button onclick="validateNewDriveForm()" class="btn_type1" id="add_drive_btn"> <b> הוספ/י נסיעה </b></button>
+{#            <button type="submit" class="btn_type1" id="add_drive_btn"> <b> הוספ/י נסיעה </b></button>#}
+            <br><br>
+
+        </form>
+
+    {% else %}
+
+        <p class="not_driver_text"> על מנת להוסיף נסיעה חדשה עליך להיות נהג. <br>
+         כדי להיות נהג מלא את הפרטים הבאים:</p>
+
+        <br> <br>
+
+            <form id="NewDriver_form" action="/NewDriver_form" method="post" >
+                <div class="grid-container">
+                    <div class="form">
+                        <label>
+                            <div class="input-container">
+                                <i class="fa fa-minus-square-o icon"></i>
+                                <input class="input-field" id="license_plate" type="text" placeholder="מספר לוחית רישוי *" name="license_plate" required>
+                            </div>
+
+                            <div class="input-container">
+                                <i class="fa fa-car icon"></i>
+                                <input class="input-field" id="car_company"  type="text" placeholder="יצרן הרכב *" name="car_company" required>
+                            </div>
+
+                            <div class="input-container">
+                                <i class="fa fa-paint-brush icon"></i>
+                                <input class="input-field" id="car_color" type="text" placeholder="צבע הרכב *" name="car_color" required>
+                            </div>
+
+                            <div class="input-container">
+                                <i class="fa fa-id-card-o icon"></i>
+                                &nbsp;&nbsp; <label for="img" id="add_img_2">  תצלום רישיון נהיגה: </label> &nbsp;&nbsp;
+                                <input type="file" id="licence_driver_img" name="licence_driver_img" accept="image/*" required>
+                            </div>
+                        </label>
+                        <br>
+
+                        <button onclick="validateNewDriverForm()" class="btn_type1" id="register_btn"> <b> הירשמ/י </b></button>
+                        <br><br><br><br>
+                    </div>
+                </div>
+             </form>
+
+
+    {% endif %}
+{% endblock %}

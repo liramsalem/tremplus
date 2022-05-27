@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{#<link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>#}
+
+<div>
+    <header id="header_1">
+    <ul>
+        {% if session.logged_in %}
+            <button id="profile_btn" class="top-line-left" onclick="window.location.href='/Profile'"  > <i class="fa fa-user-circle-o" aria-hidden="true"></i> </button>
+            <a href="/Home"><img id="logo_img_logged_in" class="top-line-center" src="header/media/logo.png" alt="Logo" style="width: 250px"></a>
+            <button id="side_nav_btn" class="top-line-right" onclick="openNav()" > <i class="fa fa-bars" aria-hidden="true"></i> </button>
+        {% else %}
+            <img id="logo_img" class="top-line-center" src="header/media/logo.png" alt="Logo" style="width: 250px">
+        {% endif %}
+    </ul>
+    </header>
+</div>
+

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'RankingUser' %}
+
+{% block body %} onload="preventRefreshing()" {% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('RankingUser.static', filename='css/RankingUser.css') }}"/>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('RankingUser.static', filename='js/RankingUser.js') }}"></script>
+{% endblock %}
+
+{% block page_body_main_content %}
+    <div class="header" >
+        <a href="/DrivesHistory" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> פרטי נסיעה קודמת </h1>
+    </div>
+
+        <div class="main" id="main" dir="rtl">
+
+{#        {% if not_ranked_yet %}#}
+{##}
+{#                {% if msg2 %}#}
+{#                    <p class="msg">{{ msg2 }}</p>#}
+{#                {% endif %}#}
+{##}
+{#        {% else %}#}
+
+                {% if message %}
+                    <p class="msg"><span id="msg_design">{{ message }} </span></p>
+                {% endif %}
+
+                <div class="grid-container">
+                    <div class="driver_cont">
+                         <a href="UserDetails?drive_id={{ res[0][0] }}"> <img class="profile_pic" src="{{ res[0][14]  }}" alt="profile_pic"> </a><br>
+                        <a href="UserDetails?drive_id={{ res[0][0] }}" class="link_text"> <span> <b> {{ res[0][9]  }} {{ res[0][10]  }} </b> </span> </a><br>
+                        {% if round_avg<1.00 %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elif 1.00<=round_avg and round_avg<2.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 2.00<=round_avg and round_avg<3.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 3.00<=round_avg and round_avg<4.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% elif 4.00<=round_avg and round_avg<5.00  %}
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                         {% endif %}
+                        <br>
+                        <span>  ממוצע דירוג: {{ round_avg }}  </span><br>
+                        <span>  מתוך {{ total_votes }} הצבעות </span><br>
+                    </div>
+                    <div class="drive_cont">
+                        <br>
+                        <div class="cont">
+                            <i class="fa fa-location-arrow" style="color: dodgerblue; font-size:24px"></i> <span class="orign_destination"> &nbsp;&nbsp; {{ res[0][2]  }}  </span> <br>
+                            &nbsp;<i class="fa fa-ellipsis-v icon" style="color:gray; font-size:24px"></i><br>
+                            <i class="fa fa-map-marker" style="color: orange; font-size:24px"></i><span class="orign_destination"> &nbsp;&nbsp;  {{ res[0][3]  }} </span>
+                        </div>
+                    </div>
+                    <div class="details">
+                        <br>
+                        <span> <b> תאריך: </b> {{ res[0][4]  }} </span> <br><br>
+                         <span> <b> שעה: </b> {{ res[0][5]  }} </span> <br><br>
+                         <span> <b> סוג רכב: </b> {{ res[0][12]  }} </span> <br><br>
+                         <span> <b> צבע: </b> {{ res[0][13]  }} </span> <br><br>
+                         <span> <b> לוחית רישוי: </b> {{ res[0][11]  }} </span> <br><br>
+                    </div>
+
+                    <div class="ranking">
+                        {% if this_drive_is_already_ranked %}
+                            <p class="msg2"> נסיעה זו כבר דורגה! </p>
+                        {% else %}
+                            <span> <b> דירוג נסיעה: </b> </span>
+                            <form id="ranking_star" action="/RankingUser" method="POST">
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 star</label>
+                                </div>
+                                <input type="hidden" value="{{ res[0][0] }}" id="drive_id" name="drive_id">
+                                <input type="hidden" value="{{ res[0][15] }}" id="driver_serial_num" name="driver_serial_num">
+                                <input type="hidden" value="{{ session['user_id'] }}" id="passenger_id" name="passenger_id">
+                                <button type="submit" class="btn_type2"> <b> דרג/י </b> </button>
+                            </form>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+{#        {% endif %}#}
+
+        </div>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+/* not driver */
+
+#add_img_2{
+  color: rgb(72, 104, 175);
+}
+
+/* Style the input container */
+.input-container {
+  display:flex;
+  width: 770px;
+  margin-bottom: 15px;
+  margin-right: 37.5%;
+}
+
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: rgb(72, 104, 175);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 35%;
+  padding: 10px;
+  outline: none;
+  text-align: right;
+}
+
+.input-field:focus {
+  border: 2px solid rgb(72, 104, 175);
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    transition: 0.5s;
+    font-size: 1.1rem;
+  }
+
+  .not_driver_text{
+    text-align: center;
+    line-height: 35px;
+  }
+
+#register_btn {
+  width: 252.5px;
+  margin-right: 40%;
+}
+
+/* driver */
+
+  .add_new_drive {
+    /*margin-right: 41%; !* for 80% screen *!*/
+    margin-right: 38.5%; /* for 100% screen */
+    background-color: #f1f1f1;
+    padding: 5px 20px 15px 20px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .input_driver {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+
+#add_drive_btn {
+  width: 150px;
+  /*margin-right: 45%; !* for 80% screen *!*/
+  margin-right: 44.5%; /* for 100% screen */
+}
+
+@media only screen and (max-width: 415px) {
+  .grid-container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: center;
+  }
+
+  .form{
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+  .input-container {
+  margin-right: 450px;
+}
+
+  #register_btn {
+  width: 252.5px;
+  margin-right: 475px;
+}
+
+    .add_new_drive {
+    margin-right:45px;
+  }
+
+    #add_drive_btn {
+  width: 150px;
+  margin-right: 120px;
+}
+
+
+}

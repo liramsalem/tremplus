@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% set page_head_title = 'Search' %}
+
+{% block body %} onload="setMinDate()" {% endblock %}
+
+{% block page_body_css %}
+    <link rel="stylesheet" href="{{ url_for('Search.static', filename='css/Search.css') }}"/>
+{% endblock %}
+
+{% block page_body_main_content %}
+
+    {%  if session.search %}
+
+        <div class="header" >
+            <a href="/Search" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+            <h1 class="header_text"> תוצאות חיפוש </h1>
+        </div>
+
+    {% if message %}
+         <p class="msg"> <span id="msg_design">{{ message }} </span> </p>
+     {% endif %}
+
+    <br>
+
+    <div class="main" id="main" dir="rtl">
+        <div class="row">
+            {% for drive in res %}
+                <div class="column 1">
+                    <div class="content">
+                        <div class="right_side">
+                            <i class="fa fa-location-arrow" style="color: dodgerblue"></i> &nbsp;&nbsp;{{ drive[2] }} <br>
+                            <i class="fa fa-ellipsis-v icon" style="color:gray"></i><br>
+                            <i class="fa fa-map-marker" style="color: orange"></i> &nbsp;&nbsp;  {{ drive[3] }}
+                        </div>
+                        <div class="left_side">
+                            <b>תאריך: {{ drive[4] }}</b><br><br>
+                            <b>שעה: {{ drive[5] }} </b><br><br>
+                            <b>מקומות פנויים: {{ drive[7] }} </b>
+                        </div>
+                        <div class="join_button">
+                             <form id="add_to_drive_form" action="/addToDrive_form" method="post">
+                                 <input type="hidden" value="{{ drive[0] }}" name="drive_id">
+                                <input type="hidden" value="add" name="req">
+                                <button class="btn_type3" id="join_to_drive_btn" > <b> הצטרפ/י </b> </button>
+                             </form>
+                        </div>
+                        <div class="side">
+                               <a href="RideDetails?drive_id={{ drive[0] }}" class="link_text" > לפרטים נוספים <i class="fa fa-caret-left" aria-hidden="true"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    {% else %}
+
+        <div class="header" >
+        <a href="/Home" class="back_btn"> <i class="fa fa-chevron-circle-right" aria-hidden="true"  style='color:lightgray'></i> </a>
+        <h1 class="header_text"> חיפוש נסיעה </h1>
+    </div>
+
+    {% if message %}
+         <p class="msg"><span id="msg_design">{{ message }} </span></p>
+     {% endif %}
+
+    <br>
+
+
+    <form id="searchform" action="/Search_form" method="get" >
+{#        <p>  על מנת לראות את כל הנסיעות הקיימות, יש ללחוץ על כפתור "חיפוש" </p>#}
+        <div class="search_box">
+            <input type="text" class="myInput" placeholder="מוצא" id="origin" name="origin"> <br><br>
+            <input type="text" class="myInput" placeholder="יעד" id="destination" name="destination" > <br><br>
+            <input type="date" class="myInput" placeholder="תאריך"  id="drive_date" name="drive_date"> <br><br>
+        </div>
+
+        <div class="search_btn">
+            <br><br>
+            <button class="btn_type2" type="submit"> <b> חיפוש </b> </button>
+        </div>
+    </form>
+
+    <form id="search_all_drive_form" action="/Search_all_drive_form" method="get" >
+        <div class="search_all_drive_btn">
+            <br><br>
+            <button class="btn_text" type="submit"> לחץ כאן לצפייה בכל הנסיעות הקיימות </button>
+            <br><br><br><br><br><br>
+        </div>
+    </form>
+
+
+    {% endif %}
+
+{% endblock %}
+
+
+{% block page_body_js %}
+    <script src="{{ url_for('Search.static', filename='js/Search.js') }}"></script>
+{% endblock %}

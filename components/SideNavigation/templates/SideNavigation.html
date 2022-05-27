@@ -1,0 +1,20 @@
+
+{% block Side_Navigation_Bar %}
+
+
+    <div class="sideNavigationBar" id="sideNavigationBar">
+        <br>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/Home" >  ראשי</a>
+        <a href="/Profile">  פרופיל אישי </a>
+        <a href="/NewDrive" >  נסיעה חדשה </a>
+        <a href="/Search"> חיפוש </a>
+        <a href="/MyRides"> הנסיעות שלי </a>
+        <a href="/DrivesHistory">  נסיעות קודמות </a>
+        <a href="/ImportantPhone">  טלפונים חשובים </a>
+        <a target="_blank" href="https://www.sng.org.il/">  אתר המועצה </a>
+        <br>
+        &nbsp;&nbsp;<button class="btn_type2" id="log_out_btn" onclick="window.location.href='/LogOut'"> <b> התנתקות </b> </button>
+        <br>
+    </div>
+{% endblock %}

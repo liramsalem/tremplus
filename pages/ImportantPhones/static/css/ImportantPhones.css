@@ -1,0 +1,59 @@
+
+.collapsible {
+  margin-right: 10vh;
+  margin-left: 10vh;
+  width: 70%;
+  text-align:right;
+  color: rgb(72, 104, 175);
+  cursor: pointer;
+  padding: 18px;
+  background-color:  rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(208,208,208);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  outline: none;
+  font-size: 25px;
+}
+
+.active, .collapsible:hover {
+  background-color: transparent;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: rgb(72, 104, 175);
+  font-weight: bold;
+  font-size: 25px;
+  float: right;
+  margin-left: 5px;
+}
+
+.content {
+  width: 70%;
+  margin-right: 10vh;
+  text-align:right;
+  padding: 30px;
+  display: none;
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 20px;
+}
+
+.name_text{
+  border-left: 2px solid black;
+}
+
+
+@media only screen and (max-width: 415px) {
+  .collapsible {
+    margin-right: 5vh;
+    margin-left: 5vh;
+  }
+
+  .content {
+    width: 100%;
+    margin-right: 0vh;
+  }
+
+}

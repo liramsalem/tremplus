@@ -1,0 +1,30 @@
+html {
+    --font-text: Calibri;
+    --backgroung-header_footer: #ecf1fc;
+    --text-color:black;
+    --page_title_color:rgb(72, 104, 175);
+    --color_background_buttons_header:#ecf1fc;
+    --color_hover_header: #e1e9f8;
+    --color_text_buttons:rgb(72, 104, 175);
+}
+
+
+
+/*
+:root {
+    !* Colors *!
+    --primary-color: #64b0ff;
+    --primary-contrast-color: white;
+    --secondary-color: black;
+    --secondary-contrast-white: white;
+
+    !* Fonts *!
+    --xsite-font-family: Tahoma, serif;
+    --xsite-font-size: 16px;
+
+    !* Links *!
+    --active-menu-item-color: var(--primary-color);
+    --link-color: var(--secondary-color);
+    --active-link-color: var(--primary-color);
+    --visited-link-color: var(--secondary-color);
+}*/
