@@ -1,4 +1,6 @@
-
+body{
+  font-family: Calibri;
+}
 .collapsible {
   margin-right: 10vh;
   margin-left: 10vh;

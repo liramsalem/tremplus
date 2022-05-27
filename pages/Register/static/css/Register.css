@@ -4,7 +4,8 @@
 }
 
 #myCheck{
-  margin-right: 41%;
+  /*margin-right: 41%; !* for 80% screen *!*/
+    margin-right: 37.5%; /* for 100% screen */
 }
 
 /* Style the input container */
@@ -13,7 +14,8 @@
   width: 770px;
   margin-bottom: 15px;
     /*justify-content: center;*/
-  margin-right: 41%;
+  /*margin-right: 41%; !* for 80% screen *!*/
+    margin-right: 37.5%; /* for 100% screen */
 }
 
 /* Style the form icons */
@@ -47,7 +49,8 @@
 
 #register_btn {
   width: 252.5px;
-  margin-right: 43%;
+  /*margin-right: 43%; !* for 80% screen *!*/
+  margin-right: 39.5%; /* for 100% screen */
 }
 
 .main_text{
