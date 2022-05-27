@@ -1,3 +1,4 @@
+
 create table users(
     Fname Varchar (45) not null,
     Lname Varchar (45) not null,
