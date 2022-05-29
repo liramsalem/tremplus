@@ -39,7 +39,7 @@
                                 <form id="deleteform" action="/MyRides" method="post">
                                     <input type="hidden" value="{{ drive[0] }}" name="drive_id">
                                     <input type="hidden" value="remove_drive" name="req">
-                                     <b>תאריך: {{ drive[4] }}</b> <button type="submit" onclick="return confirm('האם את/ה בטוח/ה שאת/ה רוצה לבטל את הנסיעה?')" class="remove_btn"> <i class="fa fa-minus-circle" style="color:#d8404a;  font-size:18px"></i> </button> <br><br>
+                                     <b>תאריך: {{ drive[4] }}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" onclick="return confirm('האם את/ה בטוח/ה שאת/ה רוצה לבטל את הנסיעה?')" class="remove_btn"> <i class="fa fa-minus-circle" style="color:#d8404a;  font-size:18px"></i> </button> <br><br>
 {#                                 <b>תאריך: {{ drive[4] }}</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" onclick="return confirm('האם את/ה בטוח/ה שאת/ה רוצה לבטל את הנסיעה?')" class="remove_btn"> <i class="fa fa-minus-circle" style="color:#d8404a;  font-size:18px"></i> </button> <br><br>#}
                                  <b>שעה: {{ drive[5] }} </b><br> </form>
                                 <p class="more_details"> <a href="RideDetailsForDriver?drive_id={{ drive[0] }}" class="link_text" > לפרטים נוספים <i class="fa fa-caret-left" aria-hidden="true"></i> </a> </p>
