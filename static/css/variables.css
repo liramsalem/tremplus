@@ -1,5 +1,6 @@
 html {
-    --font-text: Calibri;
+    --font-text: Arial;
+    /*--font-text: Calibri;*/
     --backgroung-header_footer: #ecf1fc;
     --text-color:black;
     --page_title_color:rgb(72, 104, 175);
