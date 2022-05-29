@@ -40,9 +40,9 @@
   align-items: center;
 }
 
-  input[type='date']:after {
-      content: attr(placeholder);
-  }
+  /*input[type='date']:after {*/
+  /*    content: attr(placeholder);*/
+  /*}*/
 
 /* search result */
 
