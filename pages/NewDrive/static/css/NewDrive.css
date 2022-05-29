@@ -83,7 +83,7 @@
   margin-right: 44.5%; /* for 100% screen */
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
   .grid-container{
     display: grid;
     grid-template-columns: auto;

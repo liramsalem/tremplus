@@ -26,6 +26,7 @@
         display: inline-block;
         margin: 3px;
     }
+
     .top-line-right {
         float: right;
         margin: 10px;
@@ -50,22 +51,25 @@
 }
 
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
 
     .top-line-left {
         float: left;
-        margin: 5px;
+        /*margin: 5px;*/
+        margin: 3px;
     }
 
 
     .top-line-center {
         display: inline-block;
-        margin: 3px;
+        /*margin: 3px;*/
+        margin: 1px;
     }
 
     .top-line-right {
         float: right;
-        margin: 5px;
+        /*margin: 5px;*/
+        margin: 3px;
         padding-right: 0px;
         margin-right: -27px;
     }

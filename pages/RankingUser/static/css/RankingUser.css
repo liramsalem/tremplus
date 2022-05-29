@@ -111,7 +111,7 @@
     font-size: 20px;
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
 
   .cont{
       width: 80%;

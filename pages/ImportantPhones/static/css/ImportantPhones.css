@@ -45,7 +45,7 @@
 }
 
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 500px) {
   .collapsible {
     margin-right: 5vh;
     margin-left: 5vh;
