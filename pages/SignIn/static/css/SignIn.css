@@ -43,6 +43,8 @@
   padding: 10px;
   outline: none;
   text-align: right;
+  border-style: solid;
+  border-width: 0.5px;
 }
 
 .input-field:focus {
