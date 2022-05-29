@@ -45,33 +45,45 @@
 #side_nav_btn:hover,#profile_btn:hover {
     background-color: var(--color_hover_header);
   }
+#logo_img_logged_in{
+    width: 250px;
+}
 
 #logo_img{
     margin-left: 30px;
+    width: 250px;
 }
+
+
 
 
 @media only screen and (max-width: 500px) {
 
+    #logo_img_logged_in{
+        width: 200px;
+    }
+
     .top-line-left {
         float: left;
-        /*margin: 5px;*/
-        margin: 3px;
+        margin: 5px;
+        /*margin: 3px;*/
+        font-size: 30px;
     }
 
 
     .top-line-center {
         display: inline-block;
-        /*margin: 3px;*/
-        margin: 1px;
+        margin: 3px;
+        /*margin: 1px;*/
     }
 
     .top-line-right {
         float: right;
-        /*margin: 5px;*/
-        margin: 3px;
+        margin: 5px;
+        /*margin: 3px;*/
         padding-right: 0px;
         margin-right: -27px;
+        font-size: 30px;
     }
 
 }
