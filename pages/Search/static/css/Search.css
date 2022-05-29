@@ -137,6 +137,10 @@
         width: 300px;
     }
 
+    .myInput {
+  background-image: url(../media/searchicon.png);
+  background-position-x: 250px;
+}
 
 
 }
