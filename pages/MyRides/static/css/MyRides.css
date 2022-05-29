@@ -76,6 +76,7 @@
   }
 
   .left_side{
+       position: relative;
       grid-column: 2;
       grid-row: 1;
   }
@@ -102,6 +103,11 @@
 
 #hide_msg{
     animation: hideMe 5s forwards;
+}
+
+#left_side{
+  position: absolute;
+  left: 0px;
 }
 
 @keyframes hideMe{

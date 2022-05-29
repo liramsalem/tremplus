@@ -10,6 +10,7 @@ MyRides = Blueprint('MyRides', __name__, static_folder='static', static_url_path
 def index():
     session['search'] = False
     drivers_drive= db_Drives.find_all_drivers_drives(session['user_id'])
+    print(drivers_drive)
     passenger_drive= db_Drives.find_all_passenger_drives(session['user_id'])
     if request.method == 'POST':
         drive_id = request.form['drive_id']
