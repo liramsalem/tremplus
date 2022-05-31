@@ -35,7 +35,7 @@
   color: white;
   min-width: 50px;
   text-align: center;
-    /*border-radius: 20px;*/
+    /*border-radius: 5px;*/
 }
 
 /* Style the input fields */
@@ -44,7 +44,7 @@
   padding: 10px;
   outline: none;
   text-align: right;
-  border: 2px solid rgb(227, 239, 241);
+  /*border: 2px solid rgb(227, 239, 241);*/
 }
 
 .input-field:focus {
@@ -90,6 +90,11 @@
     .col2{
         display: none;
     }
+
+    .icon {
+    border-radius: 1px;
+}
+
 
 
 }
