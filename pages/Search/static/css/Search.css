@@ -35,7 +35,7 @@
     border-color: transparent;
     padding: 5px 5px;
     text-align: center;
-      text-decoration: underline;
+    text-decoration: underline;
   }
 
   .search_all_drive_btn{
@@ -150,9 +150,32 @@
   background-position-x: 250px;
 }
 
+    .myInput_date {
+  width: 200px;
+  font-size: 20px;
+  padding: 10px 20px 12px 40px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  box-shadow: 0 0.5vh 0.5vh 0 rgba(0,0,0,0.2);
+}
+    .text_date{
+        font-size: 20px;
+    }
+
     #small_phone{
     display: inline;
 }
+
+    .text_date{
+        color: gray;
+        /*color: lightgrey;*/
+    }
+
+    .img_date{
+        color: gray;
+        /*color: lightgrey;*/
+    }
 
 
 }
