@@ -151,7 +151,7 @@
 }
 
     .myInput_date {
-  width: 200px;
+  width: 180px;
   font-size: 20px;
   padding: 10px 20px 12px 40px;
   border-radius: 15px;
@@ -159,23 +159,22 @@
   margin-bottom: 12px;
   box-shadow: 0 0.5vh 0.5vh 0 rgba(0,0,0,0.2);
 }
-    .text_date{
-        font-size: 20px;
-    }
 
     #small_phone{
-    display: inline;
+    display: inline-flex;
+        text-align: center;
 }
-
     .text_date{
+        font-size: 20px;
         color: gray;
-        /*color: lightgrey;*/
+        margin-top: 5px;
+    }
+    .search_icon{
+        margin-top: 5px;
     }
 
-    .img_date{
-        color: gray;
-        /*color: lightgrey;*/
-    }
+
+
 
 
 }
