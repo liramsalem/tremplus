@@ -13,6 +13,10 @@
   box-shadow: 0 0.5vh 0.5vh 0 rgba(0,0,0,0.2);
 }
 
+#small_phone{
+    display: none;
+}
+
 .search_box{
  text-align: center;
 }
@@ -144,6 +148,10 @@
     .myInput {
   background-image: url(../media/searchicon.png);
   background-position-x: 250px;
+}
+
+    #small_phone{
+    display: inline;
 }
 
 
