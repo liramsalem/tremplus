@@ -11,12 +11,14 @@
 /* Style the input container */
 .input-container {
   display: flex;
-  width: 770px;
+  /*width: 770px;*/
   margin-bottom: 15px;
     /*justify-content: center;*/
   /*margin-right: 41%; !* for 80% screen *!*/
     margin-right: 37.5%; /* for 100% screen */
 }
+
+
 
 /* Style the form icons */
 .icon {
@@ -29,7 +31,8 @@
 
 /* Style the input fields */
 .input-field {
-  width: 35%;
+  /*width: 35%;*/
+  width: 270px;
   padding: 10px;
   outline: none;
   text-align: right;
@@ -65,19 +68,8 @@
 
 /* Style the input container */
 .input-container {
-  display: flex;
-  width: 580px;
-  margin-bottom: 15px;
-    /*justify-content: center;*/
-  margin-right: 19%;
-}
-
-/* Style the input fields */
-.input-field {
-  width: 35%;
-  padding: 10px;
-  outline: none;
-  text-align: right;
+  /*width: 580px;*/
+  margin-right: 10%;
 }
 
 #register_btn {

@@ -7,7 +7,7 @@
 /* Style the input container */
 .input-container {
   display:flex;
-  width: 770px;
+  /*width: 770px;*/
   margin-bottom: 15px;
   margin-right: 37.5%;
 }
@@ -24,7 +24,8 @@
 
 /* Style the input fields */
 .input-field {
-  width: 35%;
+  /*width: 35%;*/
+  width: 270px;
   padding: 10px;
   outline: none;
   text-align: right;
@@ -97,12 +98,14 @@
     }
 
   .input-container {
-  margin-right: 450px;
+  /*margin-right: 450px;*/
+  margin-right: 40px;
 }
 
   #register_btn {
   width: 252.5px;
-  margin-right: 475px;
+  /*margin-right: 475px;*/
+      margin-right: 65px;
 }
 
     .add_new_drive {

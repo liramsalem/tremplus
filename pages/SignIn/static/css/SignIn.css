@@ -23,7 +23,7 @@
 /* Style the input container */
 .input-container {
   display: flex;
-  width: 770px;
+  /*width: 770px;*/
   margin-bottom: 15px;
   justify-content: center;
 }
@@ -40,7 +40,8 @@
 
 /* Style the input fields */
 .input-field {
-  width: 35%;
+  /*width: 35%;*/
+  width: 270px;
   padding: 10px;
   outline: none;
   text-align: right;
@@ -94,15 +95,6 @@
     .icon {
     border-radius: 5px;
 }
-
-/*.icon {*/
-/*  padding: 10px;*/
-/*  background: transparent;*/
-/*  color:rgb(72, 104, 175);*/
-/*  min-width: 50px;*/
-/*  text-align: center;*/
-/*    !*border-radius: 5px;*!*/
-/*}*/
 
 
 
