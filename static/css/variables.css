@@ -9,6 +9,13 @@ html {
     --color_text_buttons:rgb(72, 104, 175);
 }
 
+@media only screen and (max-width: 500px) {
+    html {
+        --font-text: Tahoma, serif;
+    }
+
+}
+
 
 
 /*
