@@ -91,10 +91,9 @@
         display: none;
     }
 
-/*    .icon {*/
-/*    border-radius: 5px;*/
-/*                !*height: 50px;*!*/
-/*}*/
+    .icon {
+    border-radius: 5px;
+}
 
 /*.icon {*/
 /*  padding: 10px;*/
