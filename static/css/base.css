@@ -33,6 +33,7 @@ body {
     padding-left: 96px;
 }
 
+
 .back_btn {
     float: right;
     margin: 10px;
@@ -102,12 +103,18 @@ body {
 
 
 @media only screen and (max-width: 500px) {
+    body {
+        font-family: Tahoma;
+    }
+
     .back_btn {
         padding-right: 15px;
     }
 
     .header_text {
         padding-left: 61px;
+        font-size: 23px;
     }
+
 
 }
