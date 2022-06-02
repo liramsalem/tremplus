@@ -112,6 +112,7 @@ body {
     }
 
     .header_text {
+        font-family: Tahoma;
         padding-left: 61px;
         font-size: 23px;
     }
