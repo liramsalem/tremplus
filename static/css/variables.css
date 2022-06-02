@@ -1,6 +1,6 @@
 html {
-    --font-text: Tahoma, serif;
-    /*--font-text: Calibri, serif;*/
+    /*--font-text: Tahoma, serif;*/
+    --font-text: Calibri, serif;
     --backgroung-header_footer: #ecf1fc;
     --text-color:black;
     --page_title_color:rgb(72, 104, 175);
@@ -11,7 +11,7 @@ html {
 
 /*@media only screen and (max-width: 500px) {*/
 /*    html {*/
-/*        --font-text: Tahoma, serif;*/
+/*        --font-text: Ariel;*/
 /*    }*/
 
 /*}*/
