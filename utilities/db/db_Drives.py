@@ -155,5 +155,10 @@ class DBdrives:
         return dbManager.commit(
             f"DELETE FROM all_future_drives WHERE drive_id='{drive_id}'");
 
+    # @staticmethod
+    # def find_driver_email(drive_id):
+    #     table= dbManager.fetch(
+    #         f"SELECT t1.user_email, t2.user_id_driver  FROM users as t1 join all_future_drives as t2 on t2.user_id_driver = t1. user_id  WHERE drive_id='{drive_id}'");
+    #     return table[0][0]
 
 db_Drives = DBdrives()

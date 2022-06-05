@@ -1,9 +1,16 @@
 from flask import Flask
-
+# from flask_mail import Mail, Message
 
 ###### App setup
 app = Flask(__name__)
 app.config.from_pyfile('settings.py')
+# app.config['MAIL_SERVER'] = 'smtp.outlook.com'
+# app.config['MAIL_PORT'] = 587
+# app.config['MAIL_USERNAME'] = 'tremplus@outlook.com'
+# app.config['MAIL_PASSWORD'] = 'Tt123456789'
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+# mail = Mail(app)
 
 ###### Pages
 

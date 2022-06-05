@@ -3,3 +3,4 @@ mysql-connector-python==8.0.28
 python-dotenv==0.19.2
 jinja2==3.0.3
 cloudinary==1.29.0
+Flask-Mail==0.9.1
