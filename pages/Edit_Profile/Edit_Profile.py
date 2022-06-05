@@ -41,7 +41,9 @@ def update():
                 db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
                 flag= True
             else:
-                return render_template('Edit_Profile.html', message="לא ניתן לעדכן את מקום המגורים. אינך רשום תחת יישוב זה!")
+                res_user_details = db_Profile.get_user_details(session['user_id'])
+                res_driver_details = db_Profile.get_driver_details(session['user_id'])
+                return render_template('Edit_Profile.html', message="לא ניתן לעדכן את מקום המגורים. אינך רשום תחת יישוב זה!", res_user_details=res_user_details, res_driver_details=res_driver_details)
         if len(nickname) >0:
             db_UpdateProfile.change_nickname(nickname,session['user_id'])
             flag= True
