@@ -35,7 +35,7 @@ def update():
             # licence_driver_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654257314/users_driver_licence_pic/{session['user_id']}_dl.jpg"
             # licence_driver_pic_db = f"../../static/media/img/users_driver_licence_pic/{session['user_id'] }_dl.jpg"
         flag= False
-        if kibutz != 1:
+        if kibutz != "1":
             Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
             if Belongs_to_shaar_hanegev:
                 db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
