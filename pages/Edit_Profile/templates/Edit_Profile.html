@@ -20,6 +20,12 @@
 
     <form id="update_details" action="/update_details" enctype="multipart/form-data" method="post" onsubmit="return validateEditProfile()">
 
+        {% if message %}
+         <p class="msg"> <span id="msg_design">{{ message }} </span> </p>
+        {% endif %}
+
+        <br><br>
+
         {%  if session.driver %}
             <input type="hidden" id="driver_or_not" value="driver">
         {% else %}
