@@ -47,9 +47,9 @@ class DBupdate_profile:
         dbManager.commit(query=query)
         return
 
-    def change_user_password(self, password, user_id):
-        query = "update tremplus_db.users set password='%s' where user_id='%s';" % (password, user_id)
-        dbManager.commit(query=query)
-        return
+    @staticmethod
+    def change_user_password(newpsw, user_id):
+        return dbManager.commit(f"UPDATE users SET password=newpsw  WHERE user_id='{user_id}'")
+
 
 db_UpdateProfile = DBupdate_profile()
