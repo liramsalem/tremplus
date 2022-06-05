@@ -35,6 +35,13 @@ def update():
             # licence_driver_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654257314/users_driver_licence_pic/{session['user_id']}_dl.jpg"
             # licence_driver_pic_db = f"../../static/media/img/users_driver_licence_pic/{session['user_id'] }_dl.jpg"
         flag= False
+        if kibutz != 1:
+            Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
+            if Belongs_to_shaar_hanegev:
+                db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
+                flag= True
+            else:
+                return render_template('Edut_Profile.html', message="לא ניתן לעדכן את מקום המגורים. אינך רשום תחת יישוב זה!")
         if len(nickname) >0:
             db_UpdateProfile.change_nickname(nickname,session['user_id'])
             flag= True
@@ -44,11 +51,11 @@ def update():
         if len(phone) >0:
             db_UpdateProfile.change_user_phone(phone,session['user_id'])
             flag= True
-        if kibutz != 1:
-            Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
-            if Belongs_to_shaar_hanegev:
-                db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
-                flag= True
+        # if kibutz != 1:
+        #     Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
+        #     if Belongs_to_shaar_hanegev:
+        #         db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
+        #         flag= True
         if profile_pic.filename!='':
             upload_obj = upload(profile_pic, public_id=f"users_profile_pic/{session['user_id']}")
             db_UpdateProfile.change_user_profile_pic(upload_obj['secure_url'], session['user_id'])
