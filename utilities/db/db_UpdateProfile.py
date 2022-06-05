@@ -48,8 +48,9 @@ class DBupdate_profile:
         return
 
     @staticmethod
-    def change_user_password(newpsw, user_id):
-        return dbManager.commit(f"UPDATE users SET password=newpsw  WHERE user_id='{user_id}'")
-
+    def change_user_password(password, user_id):
+        query = "update users set password='%s' where user_id='%s';" % (password, user_id)
+        dbManager.commit(query=query)
+        return
 
 db_UpdateProfile = DBupdate_profile()
