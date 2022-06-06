@@ -31,6 +31,7 @@ if (checkBox.checked == false){
     res = checkPhone('phone');          if (!res) return;
     res = checkEmail('email');          if (!res) return;
     res = checkPassword('password');    if (!res) return;
+    res = confirmPassword('password', 'password2')
     if(ifDriver==true){
       console.log("im driver")
       let flag_license_plate = false;
@@ -193,6 +194,17 @@ var x=document.getElementById(id).value;
 if (x.length<6){
   alert("סיסמא חייבת להכיל לפחות 6 תווים");
   document.getElementById(id).value="";
+  return false;
+}
+return true;
+}
+
+function confirmPassword(psw1id, psw2id){
+var psw1=document.getElementById(psw1id).value;
+var psw2=document.getElementById(psw2id).value;
+if (psw1!=psw2){
+  alert("הסיסמאות אינן זהות");
+  document.getElementById(psw2).value="";
   return false;
 }
 return true;
