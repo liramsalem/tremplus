@@ -155,10 +155,22 @@ class DBdrives:
         return dbManager.commit(
             f"DELETE FROM all_future_drives WHERE drive_id='{drive_id}'");
 
-    # @staticmethod
-    # def find_driver_email(drive_id):
-    #     table= dbManager.fetch(
-    #         f"SELECT t1.user_email, t2.user_id_driver  FROM users as t1 join all_future_drives as t2 on t2.user_id_driver = t1. user_id  WHERE drive_id='{drive_id}'");
-    #     return table[0][0]
+    @staticmethod
+    def find_driver_name_email(drive_id):
+        table= dbManager.fetch(
+            f"SELECT t1.user_email, t1.Fname, t1.Lname, t2.user_id_driver  FROM users as t1 join all_future_drives as t2 on t2.user_id_driver = t1. user_id  WHERE drive_id='{drive_id}'");
+        return table[0]
+
+    @staticmethod
+    def find_drive_details(drive_id):
+        table= dbManager.fetch(
+            f"SELECT origin, destination, DATE_FORMAT(drive_date, '%d/%m/%y') as d_date, DATE_FORMAT(departure_hour, '%H:%i') as d_hour  FROM all_future_drives WHERE drive_id='{drive_id}'");
+        return table[0]
+
+    @staticmethod
+    def find_participents_name_email(drive_id):
+        return dbManager.fetch(
+        f"SELECT t2.user_email, t2.Fname, t2.Lname, t2.user_id, t1.user_id_passenger  FROM participents_in_drive as t1 JOIN users as t2 ON t1.user_id_passenger = t2.user_id WHERE drive_id='{drive_id}'");
+
 
 db_Drives = DBdrives()
