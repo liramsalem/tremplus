@@ -84,3 +84,21 @@
 
 }
 
+@media only screen and (min-width: 1400px) {
+
+  #myCheck{
+  margin-right: 41.5%;
+}
+
+/* Style the input container */
+.input-container {
+  margin-right: 41.5%;
+}
+
+#register_btn {
+  width: 252.5px;
+  margin-right: 43.5%; /* for 100% screen */
+}
+
+}
+

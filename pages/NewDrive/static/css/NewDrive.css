@@ -1,5 +1,6 @@
 /* not driver */
 
+
 #add_img_2{
   color: rgb(72, 104, 175);
 }
@@ -87,42 +88,61 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .grid-container{
+  .grid-container {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
     justify-content: center;
   }
 
-  .form{
-        grid-column: 1;
-        grid-row: 1;
-    }
+  .form {
+    grid-column: 1;
+    grid-row: 1;
+  }
 
   .input-container {
-  /*margin-right: 450px;*/
-  margin-right: 40px;
+    /*margin-right: 450px;*/
+    margin-right: 40px;
+  }
+
+  #register_btn {
+    width: 252.5px;
+    /*margin-right: 475px;*/
+    margin-right: 65px;
+  }
+
+  .add_new_drive {
+    margin-right: 45px;
+  }
+
+  #add_drive_btn {
+    width: 150px;
+    margin-right: 120px;
+  }
+
+  .icon {
+    border-radius: 5px;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .input-container {
+  margin-right: 41.5%;
 }
 
   #register_btn {
-  width: 252.5px;
-  /*margin-right: 475px;*/
-      margin-right: 65px;
+  margin-right: 43.5%; /* for 100% screen */
 }
 
     .add_new_drive {
-    margin-right:45px;
+    margin-right: 42.3%; /* for 100% screen */
   }
 
-    #add_drive_btn {
-  width: 150px;
-  margin-right: 120px;
-}
-
-  .icon {
-      border-radius: 5px;
+  #add_drive_btn {
+    margin-right: 46.3%; /* for 100% screen */
   }
-
 
 
 }

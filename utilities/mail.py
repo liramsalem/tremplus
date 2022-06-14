@@ -16,7 +16,7 @@ def sendEmail(fName,lName,email,body):
         smtp.send_message(msg)
     print(f"one message send to {fName} {lName}")
 
-#
+
 # def send(fName, lName, email, body):
 #     msg = EmailMessage()
 #     msg.set_content(f" שלום {fName} {lName} , \n\n {body} ")
