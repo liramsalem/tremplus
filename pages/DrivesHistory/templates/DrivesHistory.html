@@ -13,6 +13,10 @@
     </div>
     <br>
 
+         {% if message %}
+            <p class="msg"><span id="msg_design">{{ message }} </span></p>
+        {% endif %}
+
         {% for drive in passenger_drive %}
             <div class="content">
                 <div class="right_side">

@@ -9,5 +9,6 @@ DrivesHistory = Blueprint('DrivesHistory', __name__, static_folder='static', sta
 @DrivesHistory.route('/DrivesHistory')
 def index():
     passenger_drive= db_Drives.find_all_past_passenger_drives(session['user_id'])
-    print(passenger_drive)
+    if len(passenger_drive)==0:
+        return render_template('DrivesHistory.html', message="עדיין לא התרחשה נסיעה!")
     return render_template('DrivesHistory.html',passenger_drive=passenger_drive)
