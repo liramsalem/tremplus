@@ -82,12 +82,12 @@ def add_to_drive_req():
                 else:
                     db_Drives.add_passenger_to_drive(drive_id,session['user_id'],session['user_serial_num'],1);
                     db_Drives.set_free_seats(drive_id,"add");
-                    driver_details_for_email = db_Drives.find_driver_name_email(drive_id);
-                    drive_details_for_email = db_Drives.find_drive_details(drive_id);
-                    print(driver_details_for_email)
-                    print(drive_details_for_email)
-                    sendEmail(driver_details_for_email[1], driver_details_for_email[2], driver_details_for_email[0],
-                              f"נוסע הצטרף לנסיעה החלה בתאריך {drive_details_for_email[2]} בשעה {drive_details_for_email[3]} מ- {drive_details_for_email[0]} ל- {drive_details_for_email[1]}")
+                    # driver_details_for_email = db_Drives.find_driver_name_email(drive_id);
+                    # drive_details_for_email = db_Drives.find_drive_details(drive_id);
+                    # print(driver_details_for_email)
+                    # print(drive_details_for_email)
+                    # sendEmail(driver_details_for_email[1], driver_details_for_email[2], driver_details_for_email[0],
+                    #           f"נוסע הצטרף לנסיעה החלה בתאריך {drive_details_for_email[2]} בשעה {drive_details_for_email[3]} מ- {drive_details_for_email[0]} ל- {drive_details_for_email[1]}")
                     return render_template('Search.html', message='הצטרפת בהצלחה! נסיעה טובה')
 
 
