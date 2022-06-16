@@ -86,8 +86,8 @@ def add_to_drive_req():
                     drive_details_for_email = db_Drives.find_drive_details(drive_id);
                     print(driver_details_for_email)
                     print(drive_details_for_email)
-                    # sendEmail(driver_details_for_email[1], driver_details_for_email[2], driver_details_for_email[0],
-                    #           f"נוסע הצטרף לנסיעה החלה בתאריך {drive_details_for_email[2]} בשעה {drive_details_for_email[3]} מ- {drive_details_for_email[0]} ל- {drive_details_for_email[1]}")
+                    sendEmail(driver_details_for_email[1], driver_details_for_email[2], driver_details_for_email[0],
+                              f"נוסע הצטרף לנסיעה החלה בתאריך {drive_details_for_email[2]} בשעה {drive_details_for_email[3]} מ- {drive_details_for_email[0]} ל- {drive_details_for_email[1]}")
                     return render_template('Search.html', message='הצטרפת בהצלחה! נסיעה טובה')
 
 
