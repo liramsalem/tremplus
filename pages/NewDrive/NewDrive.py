@@ -39,9 +39,7 @@ def add_new_driver():
         car_company = request.form['car_company']
         car_color = request.form['car_color']
         licence_driver_pic = request.files["licence_driver_img"]
-        # licence_driver_pic = request.form.get("licence_driver_img")
         licence_driver_pic_db = ""
-        # licence_driver_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654257314/users_driver_licence_pic/{session['user_id']}_dl.jpg"
         if db_Register.insert_driver(session['user_id'],session['user_name'],session['user_Lname'], license_plate, car_company, car_color, licence_driver_pic_db,session['user_serial_num']) > 0 and db_Register.insert_driver_to_ranking(session['user_id']) > 0:
             upload_obj = upload(licence_driver_pic, public_id=f"users_driver_licence_pic/{session['user_id']}_dl")
             db_UpdateProfile.change_user_licence_driver_pic(upload_obj['secure_url'], session['user_id'])

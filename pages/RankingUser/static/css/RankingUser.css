@@ -18,14 +18,12 @@
   .driver_cont{
       grid-area:driver_cont ;
       text-align: center;
-      /*background-color: blanchedalmond;*/
   }
 
   .details{
       grid-area:details ;
       text-align: center;
       border-top: 2px solid rgb(208,208,208);
-      /*background-color: lightgreen;*/
   }
 
   .drive_cont{

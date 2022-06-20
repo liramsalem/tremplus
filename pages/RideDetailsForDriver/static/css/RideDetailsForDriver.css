@@ -101,10 +101,6 @@
       display: grid;
       grid-template-areas: 'pas_pic pas_details';
       width: 300px;
-      /*background-color: whitesmoke;*/
-      /*padding: 10px;*/
-      /*grid-row-gap: 5px;*/
-      /*grid-column-gap: 10px;*/
   }
 
   .pas_pic{

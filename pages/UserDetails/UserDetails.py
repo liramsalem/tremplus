@@ -11,14 +11,11 @@ UserDetails = Blueprint('UserDetails', __name__, static_folder='static', static_
 def index():
     drive_id= request.args.get("drive_id")
     passenger_serial_num= request.args.get("passenger_serial_num")
-    print(drive_id)
-    print(passenger_serial_num)
     if passenger_serial_num==None:
         passenger_details= False;
         driver_details=True;
         res= db_Drives.get_driver_details_by_drive_id(drive_id)[0]
         driver_id= res[1]
-        print(driver_id)
         rank_avg_votes = db_Ranking.get_avg_total(driver_id)[0]
         round_avg = round((float(rank_avg_votes[0])), 2)
         total_votes = rank_avg_votes[1]
@@ -33,7 +30,6 @@ def index():
             passenger_also_driver = True;
             res_p_d= db_Drives.get_driver_details_by_user_id(passenger_id)[0]
             driver_id= res_p_d[0]
-            print(driver_id)
             rank_avg_votes = db_Ranking.get_avg_total(driver_id)[0]
             round_avg = round((float(rank_avg_votes[0])), 2)
             total_votes = rank_avg_votes[1]

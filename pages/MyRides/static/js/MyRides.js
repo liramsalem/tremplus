@@ -48,22 +48,3 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 
-// setTimeout(() => {
-//   const msg = document.getElementById('lir');
-//   msg.show()
-// }, 1000);
-//
-// message.reply('Invalid command')
-//   .then(msg => {
-//                 msg.delete({ timeout: 20000 /*time unitl delete in milliseconds*/});
-//             })
-//   .catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-
-// $(function() {
-// setTimeout(function() { $("#hide_msg").fadeOut(1500); }, 5000)
-//
-// })
-
-// setTimeout(function() {
-//   $('#hide_msg').show()
-// }, 4000);

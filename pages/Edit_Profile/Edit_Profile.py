@@ -12,9 +12,7 @@ Edit_Profile = Blueprint('Edit_Profile', __name__, static_folder='static', stati
 @Edit_Profile.route('/Edit_Profile')
 def index():
     res_user_details= db_Profile.get_user_details(session['user_id'])
-    print(res_user_details)
     res_driver_details = db_Profile.get_driver_details(session['user_id'])
-    print(res_driver_details)
     return render_template('Edit_Profile.html', res_user_details=res_user_details, res_driver_details=res_driver_details)
 
 @Edit_Profile.route('/update_details',methods=['GET','POST'])
@@ -25,15 +23,11 @@ def update():
         phone = request.form['phone']
         kibutz = request.form.get("kibutz")
         profile_pic = request.files["profile_img"]
-        # profile_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654255333/users_profile_pic/{session['user_id']}.jpg"
-        # profile_pic_db = f"../../static/media/img/users_profile_pic/{session['user_id']}.jpg"
         if session['driver'] == True:
             license_plate = request.form['license_plate']
             car_company = request.form['car_company']
             car_color = request.form['car_color']
             licence_driver_pic = request.files["licence_driver_img"]
-            # licence_driver_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654257314/users_driver_licence_pic/{session['user_id']}_dl.jpg"
-            # licence_driver_pic_db = f"../../static/media/img/users_driver_licence_pic/{session['user_id'] }_dl.jpg"
         flag= False
         if kibutz != "1":
             Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
@@ -53,19 +47,10 @@ def update():
         if len(phone) >0:
             db_UpdateProfile.change_user_phone(phone,session['user_id'])
             flag= True
-        # if kibutz != 1:
-        #     Belongs_to_shaar_hanegev = db_Register.check_if_belongs(session['user_id'], kibutz)
-        #     if Belongs_to_shaar_hanegev:
-        #         db_UpdateProfile.change_user_kibutz(kibutz,session['user_id'])
-        #         flag= True
         if profile_pic.filename!='':
             upload_obj = upload(profile_pic, public_id=f"users_profile_pic/{session['user_id']}")
             db_UpdateProfile.change_user_profile_pic(upload_obj['secure_url'], session['user_id'])
-            # db_UpdateProfile.change_user_profile_pic(profile_pic_db,session['user_id'])
-            # upload(profile_pic, public_id=f"users_profile_pic/{session['user_id']}")
             session['profile_pic'] = upload_obj['secure_url']
-            # profile_pic.save(f"static/media/img/users_profile_pic/{session['user_id'] }.jpg")
-            # session['profile_pic'] = f"static/media/img/users_profile_pic/{session['user_id'] }.jpg"
             flag= True
         if session['driver'] == True:
             if len(license_plate) >0:
@@ -80,9 +65,6 @@ def update():
             if licence_driver_pic.filename != '':
                 upload_obj = upload(licence_driver_pic, public_id=f"users_driver_licence_pic/{session['user_id']}_dl")
                 db_UpdateProfile.change_user_licence_driver_pic(upload_obj['secure_url'], session['user_id'])
-                # db_UpdateProfile.change_user_licence_driver_pic(licence_driver_pic_db, session['user_id'])
-                # upload(licence_driver_pic, public_id=f"users_driver_licence_pic/{session['user_id']}_dl")
-                # licence_driver_pic.save(f"static/media/img/users_driver_licence_pic/{session['user_id'] }_dl.jpg")
                 flag = True
         if flag== True:
             res_user_details = db_Profile.get_user_details(session['user_id'])

@@ -28,8 +28,6 @@ def register_form():
         password = request.form['psw']
         profile_pic = request.files["img"]
         profile_pic_db = ""
-        # profile_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654255333/users_profile_pic/{user_id}.jpg"
-        # profile_pic_db = f"../../static/media/img/users_profile_pic/{user_id}.jpg"
         profile_pic_dif= f"Register/media/profile.png"
         chaked = request.form.get("myCheck")
         license_plate = request.form['license_plate']
@@ -37,20 +35,17 @@ def register_form():
         car_color = request.form['car_color']
         licence_driver_pic = request.files["licence_driver_img"]
         licence_driver_pic_db = ""
-        # licence_driver_pic_db = f"https://res.cloudinary.com/tremplus/image/upload/v1654257314/users_driver_licence_pic/{user_id}_dl.jpg"
-        # licence_driver_pic_db = f"../../static/media/img/users_driver_licence_pic/{user_id}_dl.jpg"
         found = db_Register.check_user_exists(user_id)
         if found:
             return render_template('Register.html',message="הינך כבר רשום במערכת!")
         else:
-            Belongs_to_shaar_hanegev=db_Register.check_if_belongs(user_id,kibutz)
-            if Belongs_to_shaar_hanegev:
+            # Belongs_to_shaar_hanegev=db_Register.check_if_belongs(user_id,kibutz) #במידה ורוצים להפעיל הגבלת ישובים!!
+            # if Belongs_to_shaar_hanegev:
                 if chaked == 'on':
                     if profile_pic.filename != '':
                         if db_Register.insert_user(Fname, Lname, nickname, kibutz, user_id, phone, user_email, password, profile_pic_db) > 0:
                             upload_obj = upload(profile_pic, public_id=f"users_profile_pic/{user_id}")
                             db_UpdateProfile.change_user_profile_pic(upload_obj['secure_url'], user_id)
-                            # profile_pic.save(f"static/media/img/users_profile_pic/{user_id}.jpg")
                             return render_template('SignIn.html', message="נרשמת בהצלחה! על מנת להתחיל להשתמש יש להתחבר תחילה")
                         else:
                             return render_template('Register.html', message="חלה שגיאה, אנא נסה/י להירשם מחדש")
@@ -60,19 +55,14 @@ def register_form():
                         else:
                             return render_template('Register.html', message="חלה שגיאה, אנא נסה/י להירשם מחדש")
                 else:
-                    # if not license_plate or not car_company or not car_color or not licence_driver_pic:
-                    #     return render_template('Register.html', message="בהיותך נהג נדרש למלא את כל הפרטים")
-                    # else:
                         if profile_pic.filename != '':
                             if db_Register.insert_user(Fname, Lname, nickname, kibutz, user_id, phone, user_email, password, profile_pic_db) > 0:
                                 upload_obj = upload(profile_pic, public_id=f"users_profile_pic/{user_id}")
                                 db_UpdateProfile.change_user_profile_pic(upload_obj['secure_url'],user_id)
-                                # profile_pic.save(f"static/media/img/users_profile_pic/{user_id}.jpg")
                                 serial_num= db_Register.get_user_serial_num(user_id)
                                 if db_Register.insert_driver(user_id,Fname, Lname, license_plate, car_company, car_color,licence_driver_pic_db,serial_num) > 0 and db_Register.insert_driver_to_ranking(user_id) >0:
                                     upload_obj = upload(licence_driver_pic, public_id=f"users_driver_licence_pic/{user_id}_dl")
                                     db_UpdateProfile.change_user_licence_driver_pic(upload_obj['secure_url'],user_id)
-                                    # licence_driver_pic.save(f"static/media/img/users_driver_licence_pic/{user_id}_dl.jpg")
                                     return render_template('SignIn.html', message="נרשמת בהצלחה! על מנת להתחיל להשתמש יש להתחבר תחילה")
                                 else:
                                     return redirect(url_for('Home.index'))
@@ -84,14 +74,13 @@ def register_form():
                                 if db_Register.insert_driver(user_id,Fname, Lname, license_plate, car_company, car_color,licence_driver_pic_db,serial_num) > 0 and db_Register.insert_driver_to_ranking(user_id) >0:
                                     upload_obj = upload(licence_driver_pic, public_id=f"users_driver_licence_pic/{user_id}_dl")
                                     db_UpdateProfile.change_user_licence_driver_pic(upload_obj['secure_url'], user_id)
-                                    # licence_driver_pic.save(f"static/media/img/users_driver_licence_pic/{user_id}_dl.jpg")
                                     return render_template('SignIn.html', message="נרשמת בהצלחה! על מנת להתחיל להשתמש יש להתחבר תחילה")
                                 else:
                                     return redirect(url_for('Home.index'))
                             else:
                                 return render_template('Register.html', message="חלה שגיאה, אנא נסה/י להירשם מחדש")
 
-            else:
-                return render_template('Register.html', message="אנו מצטערים, TREMPLUS מיועדת לתושבי מועצה אזורית שער הנגב.")
+            # else:
+            #     return render_template('Register.html', message="אנו מצטערים, TREMPLUS מיועדת לתושבי מועצה אזורית שער הנגב.")
 
 

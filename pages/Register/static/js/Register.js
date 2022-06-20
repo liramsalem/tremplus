@@ -8,21 +8,15 @@ var text = document.getElementById("idDriver");
 // If the checkbox is not checked, display the output text
 if (checkBox.checked == false){
   text.style.display = "block"; // driver
-  console.log("block")
   ifDriver= true;
-  console.log(ifDriver)
 } else {
   text.style.display = "none";  //not driver
   ifDriver= false;
-  console.log("none")
-  console.log(ifDriver)
 }
 }
 
 //--------------------------- Form Validation -----------------------------------
   function validateRegisterForm(){
-    console.log("ifDriver from checkbox")
-    console.log(ifDriver)
     let res = false;
     res = checkFirstName('fname');           if (!res) return;
     res = checkLastName('lname');           if (!res) return;
@@ -33,85 +27,52 @@ if (checkBox.checked == false){
     res = checkPassword('password');    if (!res) return;
     res = confirmPassword('password', 'password2')
     if(ifDriver==true){
-      console.log("im driver")
       let flag_license_plate = false;
       let flag_car_company = false;
       let flag_car_color = false;
       let flag_licence_driver_img= false;
       var license_plate = document.getElementById('license_plate').value;
-      console.log(license_plate)
-      console.log(typeof license_plate)
-      console.log(license_plate.length)
       var car_company = document.getElementById('car_company').value;
-      console.log(car_company)
-      console.log(typeof car_company)
-      console.log(car_company.length)
       var car_color = document.getElementById('car_color').value;
-      console.log(car_color)
-      console.log(typeof car_color)
-      console.log(car_color.length)
       var licence_driver_img = document.getElementById('licence_driver_img').value;
-      console.log(licence_driver_img)
-      console.log(typeof licence_driver_img)
-      console.log(licence_driver_img.length)
-      console.log("ללל")
+
 
       var license_plate_str = onlyNumbers(license_plate);
       if(license_plate_str.length != 8 && license_plate_str.length != 7){
-        console.log("license_plate>01")
         document.getElementById('license_plate').value = "";
         alert("מספר לוחית רישוי לא תקין. חייב להיות בן 7 או 8 ספרות");
         flag_license_plate = false;
-        console.log(flag_license_plate)
-        console.log("license_plate>02")
       }else{
         document.getElementById('license_plate').value = license_plate_str;
         flag_license_plate = true;
       }
 
-      console.log("ans_license_plate")
-      console.log(flag_license_plate)
 
       if(car_company.length <= 1){
-        console.log("car_company>01")
         document.getElementById('car_company').value = "";
         alert("יצרן הרכב חייב להיות באורך של 2 תווים ומעלה");
         flag_car_company = false;
-        console.log(flag_car_company)
-        console.log("car_company>02")
       }else{
         flag_car_company = true;
       }
 
-      console.log("car_company")
-      console.log(flag_car_company)
 
       if(car_color.length <= 1){
-        console.log("car_color>01")
         document.getElementById('car_color').value = "";
         alert("צבע הרכב חייב להיות באורך של 2 תווים ומעלה");
         flag_car_color = false;
-        console.log(flag_car_color)
-        console.log("car_color>02")
       }else{
         flag_car_color = true;
       }
 
-      console.log("car_color")
-      console.log(flag_car_color)
 
       if (licence_driver_img.length == 0){
-        console.log("licence_driver_img>01")
         alert("על מנת להירשם חייב לעלות תצלום רישיון נהיגה");
         flag_licence_driver_img = false;
-        console.log(flag_licence_driver_img)
-        console.log("licence_driver_img>02")
       }else{
         flag_licence_driver_img = true;
       }
 
-      console.log("licence_driver_img")
-      console.log(flag_licence_driver_img)
 
       if(flag_license_plate == true && flag_car_company == true && flag_car_color == true && flag_licence_driver_img == true  ){// document.getElementById("update_details").submit();
         document.getElementById("registerform").submit();
